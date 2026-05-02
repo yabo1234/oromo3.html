@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oromo3 – Bilingual News &amp; Views</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:  #006400;
+      --red:    #cc0000;
+      --black:  #111111;
+      --light:  #f5f5f5;
+      --white:  #ffffff;
+      --card-shadow: 0 3px 12px rgba(0,0,0,.12);
+      --radius: 10px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 60px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    }
+    .nav-brand {
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: .95rem;
+      transition: background .2s;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,.18); color: #fff; }
+
+    /* language toggle */
+    .lang-toggle {
+      display: flex;
+      gap: 0;
+      border: 2px solid rgba(255,255,255,.6);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .lang-toggle button {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,.75);
+      padding: 4px 14px;
+      cursor: pointer;
+      font-size: .85rem;
+      font-weight: 600;
+      transition: background .2s, color .2s;
+    }
+    .lang-toggle button.active {
+      background: var(--white);
+      color: var(--green);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, #004d00 60%, var(--red) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 24px 60px;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 12px; }
+    .hero p  { font-size: clamp(1rem, 2.5vw, 1.3rem); opacity: .9; max-width: 640px; margin: 0 auto 28px; }
+    .hero-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--green);
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+
+    /* ── Section wrappers ── */
+    section { padding: 60px 24px; }
+    section:nth-child(even) { background: var(--white); }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.7rem;
+      color: var(--green);
+      margin-bottom: 8px;
+      border-left: 5px solid var(--red);
+      padding-left: 14px;
+    }
+    .section-subtitle { color: #555; margin-bottom: 32px; font-size: .97rem; }
+
+    /* ── News cards ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.16); }
+    .card-img {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+    .card-tag {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--black); }
+    .card-text  { font-size: .9rem; color: #555; flex: 1; }
+    .card-date  { font-size: .8rem; color: #999; margin-top: 12px; }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-box {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 28px;
+      border-left: 5px solid var(--green);
+    }
+    .about-box h3 { margin-bottom: 10px; color: var(--green); }
+
+    /* ── Contact ── */
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      max-width: 560px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: .97rem;
+      font-family: inherit;
+      transition: border-color .2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { outline: none; border-color: var(--green); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .submit-btn {
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      padding: 13px 36px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      width: fit-content;
+    }
+    .submit-btn:hover { background: #004d00; transform: translateY(-1px); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 28px 16px;
+      font-size: .88rem;
+    }
+    footer span { color: var(--white); font-weight: 600; }
+
+    /* ── Language-driven visibility ── */
+    [data-lang] { display: none; }
+    html[lang="en"] [data-lang="en"] { display: block; }
+    html[lang="en"] [data-lang="en"].inline { display: inline; }
+    html[lang="om"] [data-lang="om"] { display: block; }
+    html[lang="om"] [data-lang="om"].inline { display: inline; }
+
+    /* inline spans inside shared elements */
+    .bilingual .en, .bilingual .om { display: none; }
+    html[lang="en"] .bilingual .en { display: inline; }
+    html[lang="om"] .bilingual .om { display: inline; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav>
+    <a class="nav-brand" href="#home">Oromo3</a>
+    <ul class="nav-links">
+      <li><a href="#home"    class="bilingual"><span class="en">Home</span><span class="om">Mana</span></a></li>
+      <li><a href="#news"    class="bilingual"><span class="en">News</span><span class="om">Oduu</span></a></li>
+      <li><a href="#about"   class="bilingual"><span class="en">About</span><span class="om">Waa'ee Keenya</span></a></li>
+      <li><a href="#contact" class="bilingual"><span class="en">Contact</span><span class="om">Nu Quunnamaa</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-om"                onclick="setLang('om')">OM</button>
+    </div>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <div class="hero" id="home">
+    <div data-lang="en">
+      <h1>🌍 Welcome to Oromo3</h1>
+      <p>Your trusted source for Oromo news, culture, and views — in English and Afaan Oromoo.</p>
+      <a class="hero-btn" href="#news">Read the News</a>
+    </div>
+    <div data-lang="om">
+      <h1>🌍 Baga Nagaan Dhuftan – Oromo3</h1>
+      <p>Madda oduu, aadaa fi yaada Oromoo isin amanamaa – Afaan Oromoo fi Ingliffaan.</p>
+      <a class="hero-btn" href="#news">Oduu Dubbisi</a>
+    </div>
+  </div>
+
+  <!-- ══════════ NEWS ══════════ -->
+  <section id="news">
+    <div class="section-inner">
+      <div data-lang="en">
+        <h2 class="section-title">Latest News</h2>
+        <p class="section-subtitle">Stay up to date with what is happening in Oromia and across the world.</p>
+      </div>
+      <div data-lang="om">
+        <h2 class="section-title">Oduu Haaraa</h2>
+        <p class="section-subtitle">Waan Oromiyaa fi addunyaa keessatti ta'aa jiru hordofaa.</p>
+      </div>
+
+      <div class="cards">
+
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-img" style="background:#e8f5e9;">🌾</div>
+          <div class="card-body">
+            <span class="card-tag bilingual"><span class="en">Agriculture</span><span class="om">Qonnaa</span></span>
+            <div class="card-title bilingual">
+              <span class="en">Oromia's harvest season yields record crops</span>
+              <span class="om">Yeroo qonna Oromiyaa keessatti oomisha seenaa haaraa galmeesse</span>
+            </div>
+            <p class="card-text bilingual">
+              <span class="en">Farmers across Oromia celebrated a bumper harvest this season, with maize and wheat yields surpassing previous records.</span>
+              <span class="om">Qonnaawwan Oromiyaa guutuu ammaa oomisha caalaa argatan, midhaaniin boqqolloo fi qamadii tarreeffama darbee irra darbee jira.</span>
+            </p>
+            <div class="card-date">📅 <span class="bilingual"><span class="en">April 28, 2026</span><span class="om">Ebla 28, 2026</span></span></div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-img" style="background:#fff3e0;">🎓</div>
+          <div class="card-body">
+            <span class="card-tag bilingual"><span class="en">Education</span><span class="om">Barnoota</span></span>
+            <div class="card-title bilingual">
+              <span class="en">New universities open doors in Oromia region</span>
+              <span class="om">Yuunivarsiitiin haaraan Naannoo Oromiyaa keessatti banbaa</span>
+            </div>
+            <p class="card-text bilingual">
+              <span class="en">Three new universities have opened in Oromia, bringing higher education closer to communities in rural areas.</span>
+              <span class="om">Yuunivarsiitii haaraa sadii Oromiyaa keessatti bana ta'an, barnoota ol aanaa ganda baadiyyaatti dhiyeessanii jiru.</span>
+            </p>
+            <div class="card-date">📅 <span class="bilingual"><span class="en">April 22, 2026</span><span class="om">Ebla 22, 2026</span></span></div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="card-img" style="background:#fce4ec;">🎵</div>
+          <div class="card-body">
+            <span class="card-tag bilingual"><span class="en">Culture</span><span class="om">Aadaa</span></span>
+            <div class="card-title bilingual">
+              <span class="en">Oromo music festival draws thousands</span>
+              <span class="om">Ayyaana muuziqaa Oromoo kuma hedduu hamatee</span>
+            </div>
+            <p class="card-text bilingual">
+              <span class="en">The annual Oromo music and cultural festival celebrated the rich heritage of the Oromo people with performances from across Africa.</span>
+              <span class="om">Ayyaanni muuziqaa fi aadaa Oromoo waggaa waggaan qabeenya guddaa saba Oromoo kabaje – taphatuuwwan Afrikaa guutuu irraa argaman.</span>
+            </p>
+            <div class="card-date">📅 <span class="bilingual"><span class="en">April 15, 2026</span><span class="om">Ebla 15, 2026</span></span></div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+          <div class="card-img" style="background:#e3f2fd;">⚽</div>
+          <div class="card-body">
+            <span class="card-tag bilingual"><span class="en">Sports</span><span class="om">Ispoortii</span></span>
+            <div class="card-title bilingual">
+              <span class="en">Oromo athletes shine at continental games</span>
+              <span class="om">Taphattoowwan Oromoo dorgommii qitaabba Afrikaatti caqasaa turan</span>
+            </div>
+            <p class="card-text bilingual">
+              <span class="en">Oromo runners and field athletes claimed multiple gold medals at the East African Athletics Championships held in Addis Ababa.</span>
+              <span class="om">Fiigduu fi taphattoowwan dirree Oromoo golee hedduu dorgommii ispoortii Afrikaa Bahaa Finfinnee keessatti qabatan.</span>
+            </p>
+            <div class="card-date">📅 <span class="bilingual"><span class="en">April 10, 2026</span><span class="om">Ebla 10, 2026</span></span></div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+          <div class="card-img" style="background:#f3e5f5;">🌐</div>
+          <div class="card-body">
+            <span class="card-tag bilingual"><span class="en">Technology</span><span class="om">Teeknooloojii</span></span>
+            <div class="card-title bilingual">
+              <span class="en">Afaan Oromoo added to major translation tools</span>
+              <span class="om">Afaan Oromoo meeshaalee hiikaa guguddaa keessatti dabalame</span>
+            </div>
+            <p class="card-text bilingual">
+              <span class="en">Global technology companies have added Afaan Oromoo to their automatic translation platforms, serving millions of speakers worldwide.</span>
+              <span class="om">Dhaabbattoowwan teeknooloojii addunyaa Afaan Oromoo sirnaalee hiikaa ofumaan hojjetan keessatti dabaluun tajaajila kuma hedduu addunyaa irraa kennan.</span>
+            </p>
+            <div class="card-date">📅 <span class="bilingual"><span class="en">April 5, 2026</span><span class="om">Ebla 5, 2026</span></span></div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+          <div class="card-img" style="background:#e0f7fa;">💧</div>
+          <div class="card-body">
+            <span class="card-tag bilingual"><span class="en">Environment</span><span class="om">Naannoo Uumaa</span></span>
+            <div class="card-title bilingual">
+              <span class="en">Oromia plants 500 million trees in green initiative</span>
+              <span class="om">Oromiyaan sagantaa magariisaa keessatti miti miiliyoonii 500 dhaabuun milkoofte</span>
+            </div>
+            <p class="card-text bilingual">
+              <span class="en">Oromia's ambitious reforestation drive has successfully planted 500 million trees, combating desertification and climate change.</span>
+              <span class="om">Sagantaa muka dhaabuu Oromiyaa kan humnaan guutame miti miiliyoonii 500 milkaasuun gammoojjummaa fi jijjiirama qilleensaa ittisaa jira.</span>
+            </p>
+            <div class="card-date">📅 <span class="bilingual"><span class="en">March 30, 2026</span><span class="om">Bitootessa 30, 2026</span></span></div>
+          </div>
+        </div>
+
+      </div><!-- .cards -->
+    </div><!-- .section-inner -->
+  </section>
+
+  <!-- ══════════ ABOUT ══════════ -->
+  <section id="about">
+    <div class="section-inner">
+      <div data-lang="en">
+        <h2 class="section-title">About Oromo3</h2>
+        <p class="section-subtitle">Who we are and what we stand for.</p>
+      </div>
+      <div data-lang="om">
+        <h2 class="section-title">Waa'ee Oromo3</h2>
+        <p class="section-subtitle">Eenyuu akka taane fi maal irratti akka dhaabbanne.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-box">
+          <h3 class="bilingual"><span class="en">🎯 Our Mission</span><span class="om">🎯 Kaayyoo Keenya</span></h3>
+          <p class="bilingual">
+            <span class="en">Oromo3 is dedicated to delivering accurate, timely, and unbiased news about the Oromo people, Oromia, and the wider world — in both English and Afaan Oromoo.</span>
+            <span class="om">Oromo3 oduu sirrii, yeroo isaa fi qulqullina qabu waa'ee saba Oromoo, Oromiyaa fi addunyaa bal'aa – Afaan Oromoo fi Ingliffaan – kennuuf carraaqna.</span>
+          </p>
+        </div>
+        <div class="about-box">
+          <h3 class="bilingual"><span class="en">🌍 Our Vision</span><span class="om">🌍 Mul'ata Keenya</span></h3>
+          <p class="bilingual">
+            <span class="en">We envision a world where every Oromo speaker has access to news and information in their own language, bridging communities across the globe.</span>
+            <span class="om">Addunyaa keessatti kan hunda dura dubbataan Afaan Oromoo oduu fi odeeffannoo afaan ofii isaanitiin argachuu danda'u ilaalla — hawaasota addunyaa guutuu walitti hidha.</span>
+          </p>
+        </div>
+        <div class="about-box">
+          <h3 class="bilingual"><span class="en">📰 Editorial Values</span><span class="om">📰 Gatii Editooriyaalaa</span></h3>
+          <p class="bilingual">
+            <span class="en">We uphold accuracy, fairness, independence, and respect for cultural identity in every story we publish.</span>
+            <span class="om">Oduu hunda keessatti sirrummaa, haqa, of-danda'ummaa fi kabaja eenyummaa aadaa eegna.</span>
+          </p>
+        </div>
+        <div class="about-box">
+          <h3 class="bilingual"><span class="en">🤝 Community Focus</span><span class="om">🤝 Xiyyeeffannaa Hawaasaa</span></h3>
+          <p class="bilingual">
+            <span class="en">Oromo3 was built by and for the Oromo community — at home in Oromia and across the diaspora worldwide.</span>
+            <span class="om">Oromo3 hawaasa Oromootiin fi hawaasa Oromoof ijaarame — naannoo Oromiyaa keessattis ta'e diaspoora addunyaa keessatti.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONTACT ══════════ -->
+  <section id="contact">
+    <div class="section-inner">
+      <div data-lang="en">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Have a story tip or feedback? Reach out — we'd love to hear from you.</p>
+      </div>
+      <div data-lang="om">
+        <h2 class="section-title">Nu Quunnamaa</h2>
+        <p class="section-subtitle">Yaada oduu ykn yaada qabaattaa? Nu quunnamaa — isinii dhaggeeffachuu barbaanna.</p>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" id="cf-name" placeholder="" required />
+        <input type="email" id="cf-email" placeholder="" required />
+        <input type="text" id="cf-subject" placeholder="" required />
+        <textarea id="cf-message" placeholder="" required></textarea>
+        <button type="submit" class="submit-btn bilingual">
+          <span class="en">Send Message</span>
+          <span class="om">Ergaa Ergi</span>
+        </button>
+      </form>
+      <p id="form-success" style="display:none; margin-top:16px; color:var(--green); font-weight:600;" class="bilingual">
+        <span class="en">✅ Thank you! Your message has been sent.</span>
+        <span class="om">✅ Galatoomaa! Ergaan keessan erggamee jira.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <p>&copy; 2026 <span>Oromo3</span>. 
+      <span class="bilingual" style="display:inline;">
+        <span class="en">All rights reserved. Built with ❤️ for the Oromo community.</span>
+        <span class="om">Mirgi hundi eegamaa jira. ❤️ hawaasa Oromoof ijaarame.</span>
+      </span>
+    </p>
+  </footer>
+
+  <script>
+    /* ── Language switcher ── */
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-om').classList.toggle('active', lang === 'om');
+      updatePlaceholders(lang);
+    }
+
+    function updatePlaceholders(lang) {
+      const labels = {
+        en: { name: 'Your Name', email: 'Your Email', subject: 'Subject', message: 'Your message…' },
+        om: { name: 'Maqaa Keessan', email: 'Imeeyilii Keessan', subject: 'Mata-Duree', message: 'Ergaa keessan…' }
+      };
+      const l = labels[lang];
+      document.getElementById('cf-name').placeholder    = l.name;
+      document.getElementById('cf-email').placeholder   = l.email;
+      document.getElementById('cf-subject').placeholder = l.subject;
+      document.getElementById('cf-message').placeholder = l.message;
+    }
+
+    /* ── Contact form ── */
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
+    }
+
+    /* ── Init ── */
+    updatePlaceholders('en');
+  </script>
+</body>
+</html>
