@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oromo News &amp; Views</title>
+  <title class="bilingual"><span class="en">Oromo News &amp; Views</span><span class="om">Oduu fi Yaada Oromoo</span></title>
   <meta name="description" content="Stay informed with the latest Oromo news, cultural insights, history, and community voices from across the globe." />
 
   <!-- Open Graph -->
@@ -24,7 +24,10 @@
 <body>
 
   <!-- Skip navigation for keyboard / screen-reader users -->
-  <a class="skip-link" href="#main-content">Gara qabiyyee keessaatti ce'i</a>
+  <a class="skip-link bilingual" href="#main-content">
+    <span class="en">Skip to main content</span>
+    <span class="om">Gara qabiyyee keessaatti ce'i</span>
+  </a>
 
   <!-- ===================== HEADER ===================== -->
   <header class="site-header" role="banner">
@@ -35,26 +38,40 @@
 
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="#news"    aria-current="page">News</a></li>
-          <li><a href="#culture">Culture</a></li>
-          <li><a href="#views">Views</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#news"    aria-current="page" class="bilingual"><span class="en">News</span><span class="om">Oduu</span></a></li>
+          <li><a href="#culture" class="bilingual"><span class="en">Culture</span><span class="om">Aadaa</span></a></li>
+          <li><a href="#views"   class="bilingual"><span class="en">Views</span><span class="om">Yaadota</span></a></li>
+          <li><a href="#about"   class="bilingual"><span class="en">About</span><span class="om">Waa'ee Keenya</span></a></li>
         </ul>
       </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button id="btn-en" class="active" onclick="setLang('en')" aria-pressed="true">EN</button>
+        <button id="btn-om"                onclick="setLang('om')" aria-pressed="false">OM</button>
+      </div>
     </div>
   </header>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" aria-labelledby="hero-heading">
-    <h1 id="hero-heading">
-      Your Source for <span>Oromo</span> News &amp; Views
-    </h1>
-    <p>
-      Reliable reporting, cultural insights, and community perspectives
-      covering Oromia and the global Oromo diaspora.
-    </p>
-    <a class="btn btn-primary" href="#news">Read Latest News</a>
-    <a class="btn btn-outline" href="#about">About This Site</a>
+    <div data-lang="en">
+      <h1 id="hero-heading">Your Source for <span>Oromo</span> News &amp; Views</h1>
+      <p>
+        Reliable reporting, cultural insights, and community perspectives
+        covering Oromia and the global Oromo diaspora.
+      </p>
+      <a class="btn btn-primary" href="#news">Read Latest News</a>
+      <a class="btn btn-outline" href="#about">About This Site</a>
+    </div>
+    <div data-lang="om">
+      <h1 id="hero-heading-om">Madda <span>Oduu fi Yaada Oromoo</span> Keessan</h1>
+      <p>
+        Gabaasaa amanamaa, hubannoo aadaa, fi ilaalcha hawaasaa waa'ee
+        Oromiyaa fi diasporaa Oromoo addunyaa irraa.
+      </p>
+      <a class="btn btn-primary" href="#news">Oduu Haaraa Dubbisi</a>
+      <a class="btn btn-outline" href="#about">Waa'ee Marsariitii</a>
+    </div>
   </section>
 
   <!-- ===================== MAIN ===================== -->
@@ -62,7 +79,10 @@
 
     <!-- ---- Latest News ---- -->
     <section id="news" aria-labelledby="news-heading">
-      <h2 class="section-title" id="news-heading">Latest News</h2>
+      <h2 class="section-title bilingual" id="news-heading">
+        <span class="en">Latest News</span>
+        <span class="om">Oduu Haaraa</span>
+      </h2>
       <div class="cards-grid">
 
         <article class="card">
@@ -70,13 +90,19 @@
             <span class="card-icon">📰</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Politics</span>
-            <h3 class="card-title">Community Leaders Call for Dialogue on Regional Governance</h3>
-            <p class="card-excerpt">
-              Representatives from across Oromia met to discuss inclusive governance
-              and sustainable development in the region.
+            <span class="card-category bilingual"><span class="en">Politics</span><span class="om">Siyaasaa</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Community Leaders Call for Dialogue on Regional Governance</span>
+              <span class="om">Hoggantooti Hawaasaa Marii Bulchiinsa Naannoo Irratti Waaman</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">Representatives from across Oromia met to discuss inclusive governance and sustainable development in the region.</span>
+              <span class="om">Bakka bu'ooti Oromiyaa guutuu marii bulchiinsa hammataa fi guddinaa bara dheeraa naannoo keessatti argamuuf walitti qabaman.</span>
             </p>
-            <a class="card-link" href="#news" aria-label="Read more about community leaders and regional governance">Read more</a>
+            <a class="card-link bilingual" href="#news" aria-label="Read more about community leaders and regional governance">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -85,13 +111,19 @@
             <span class="card-icon">🌾</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Economy</span>
-            <h3 class="card-title">Agricultural Reforms Set to Boost Smallholder Farmers</h3>
-            <p class="card-excerpt">
-              New policy initiatives target smallholder farmers in Oromia, aiming to
-              improve yields and market access through cooperative models.
+            <span class="card-category bilingual"><span class="en">Economy</span><span class="om">Diinagdee</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Agricultural Reforms Set to Boost Smallholder Farmers</span>
+              <span class="om">Fooyyessa Qonnaa Qonnaawwan Xiqaa Gargaaruuf Qophaa'e</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">New policy initiatives target smallholder farmers in Oromia, aiming to improve yields and market access through cooperative models.</span>
+              <span class="om">Sagantaalee qajeelfama haaraan qonnaawwan xiqaa Oromiyaa keessatti xiyyeeffatu — oomisha fooyyessuu fi gabaa galuuf gargaaru.</span>
             </p>
-            <a class="card-link" href="#news" aria-label="Read more about agricultural reforms">Read more</a>
+            <a class="card-link bilingual" href="#news" aria-label="Read more about agricultural reforms">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -100,13 +132,19 @@
             <span class="card-icon">🎓</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Education</span>
-            <h3 class="card-title">Afaan Oromoo Literacy Program Reaches New Milestone</h3>
-            <p class="card-excerpt">
-              A volunteer-led program has helped thousands of adults gain literacy in
-              Afaan Oromoo, the most widely spoken Cushitic language in Africa.
+            <span class="card-category bilingual"><span class="en">Education</span><span class="om">Barnoota</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Afaan Oromoo Literacy Program Reaches New Milestone</span>
+              <span class="om">Sagantaa Barreeffama Afaan Oromoo Mallattoo Haaraa Bira Gahe</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">A volunteer-led program has helped thousands of adults gain literacy in Afaan Oromoo, the most widely spoken Cushitic language in Africa.</span>
+              <span class="om">Sagantaa hoggansa fedhii tiin guuzaa namoota gurrachessuu Afaan Oromoo baruuf gargaaree — afaan Kushitikii hunda caalaa Afrikaa keessatti dubbatamu.</span>
             </p>
-            <a class="card-link" href="#news" aria-label="Read more about the literacy program">Read more</a>
+            <a class="card-link bilingual" href="#news" aria-label="Read more about the literacy program">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -115,13 +153,19 @@
             <span class="card-icon">🌍</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Diaspora</span>
-            <h3 class="card-title">Oromo Diaspora Raises Funds for Drought Relief</h3>
-            <p class="card-excerpt">
-              Community organisations in North America and Europe have mobilised to
-              support families affected by drought in parts of Oromia.
+            <span class="card-category bilingual"><span class="en">Diaspora</span><span class="om">Diasporaa</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Oromo Diaspora Raises Funds for Drought Relief</span>
+              <span class="om">Diaspooran Oromoo Gargaarsa Hoo'a Biyya Dhibuu Karoorfate</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">Community organisations in North America and Europe have mobilised to support families affected by drought in parts of Oromia.</span>
+              <span class="om">Dhaabbattooti hawaasaa Ameerikaa Kaabaa fi Awurooppaa maatii hoo'a biyya dhibuun miidhaman gargaaruuf sochoosanii jiru.</span>
             </p>
-            <a class="card-link" href="#news" aria-label="Read more about diaspora drought relief efforts">Read more</a>
+            <a class="card-link bilingual" href="#news" aria-label="Read more about diaspora drought relief efforts">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -130,13 +174,19 @@
             <span class="card-icon">⚖️</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Human Rights</span>
-            <h3 class="card-title">Rights Groups Document Displacement Along Infrastructure Corridors</h3>
-            <p class="card-excerpt">
-              NGOs have released reports calling on authorities to ensure transparent
-              compensation and resettlement processes for affected communities.
+            <span class="card-category bilingual"><span class="en">Human Rights</span><span class="om">Mirga Namoomaa</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Rights Groups Document Displacement Along Infrastructure Corridors</span>
+              <span class="om">Gareewwan Mirga Namoomaa Buqqaatii Daandii Misooma Galmeessan</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">NGOs have released reports calling on authorities to ensure transparent compensation and resettlement processes for affected communities.</span>
+              <span class="om">Dhaabbattooti mootummaa hin taane gabaasaalee hawaasota miidhaman kaffaltii iftoomina qabuu fi deebii qubsumaa mirga mirkaneessuuf mootummaa waamuuf baasan.</span>
             </p>
-            <a class="card-link" href="#news" aria-label="Read more about human rights and displacement">Read more</a>
+            <a class="card-link bilingual" href="#news" aria-label="Read more about human rights and displacement">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -145,13 +195,19 @@
             <span class="card-icon">🏃</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Sports</span>
-            <h3 class="card-title">Oromo Athletes Continue to Excel on the World Stage</h3>
-            <p class="card-excerpt">
-              Long-distance runners from Oromia celebrated podium finishes at
-              international events, inspiring a new generation of young athletes.
+            <span class="card-category bilingual"><span class="en">Sports</span><span class="om">Ispoortii</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Oromo Athletes Continue to Excel on the World Stage</span>
+              <span class="om">Taphattooti Oromoo Bifa Addunyaatti Caalmaa Itti Fufsisaa Jiran</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">Long-distance runners from Oromia celebrated podium finishes at international events, inspiring a new generation of young athletes.</span>
+              <span class="om">Fiigduu fagoo Oromiyaa irraa dhufe dorgommiilee addunyaa irratti injifannoo argachuun, taphattoota haaraa dhalootaa kakaasaa jiru.</span>
             </p>
-            <a class="card-link" href="#news" aria-label="Read more about Oromo athletes">Read more</a>
+            <a class="card-link bilingual" href="#news" aria-label="Read more about Oromo athletes">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -160,7 +216,10 @@
 
     <!-- ---- Culture ---- -->
     <section id="culture" aria-labelledby="culture-heading">
-      <h2 class="section-title" id="culture-heading">Culture &amp; Heritage</h2>
+      <h2 class="section-title bilingual" id="culture-heading">
+        <span class="en">Culture &amp; Heritage</span>
+        <span class="om">Aadaa fi Dhaalaa</span>
+      </h2>
       <div class="cards-grid">
 
         <article class="card">
@@ -168,13 +227,19 @@
             <span class="card-icon">🌺</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Tradition</span>
-            <h3 class="card-title">Irreecha: The Oromo Thanksgiving Festival</h3>
-            <p class="card-excerpt">
-              Celebrated at Hora Arsadi Lake, Irreecha is a vibrant annual thanksgiving
-              festival where millions gather to express gratitude for life and nature.
+            <span class="card-category bilingual"><span class="en">Tradition</span><span class="om">Aadaa</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Irreecha: The Oromo Thanksgiving Festival</span>
+              <span class="om">Irreechaa: Ayyaana Galateeffannaa Oromoo</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">Celebrated at Hora Arsadi Lake, Irreecha is a vibrant annual thanksgiving festival where millions gather to express gratitude for life and nature.</span>
+              <span class="om">Haroo Arsadii irratti kabajamu, Irreechaan ayyaana galateeffannaa waggaa waggaa kan kuma hedduun walitti qabamee jireenyaa fi uumaa galateeffatanidha.</span>
             </p>
-            <a class="card-link" href="#culture" aria-label="Read more about Irreecha festival">Read more</a>
+            <a class="card-link bilingual" href="#culture" aria-label="Read more about Irreecha festival">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -183,13 +248,19 @@
             <span class="card-icon">🎵</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Music</span>
-            <h3 class="card-title">The Enduring Legacy of Oromo Folk Music</h3>
-            <p class="card-excerpt">
-              From the soulful strains of the krar to modern Oromo pop, the musical
-              tradition of the Oromo people spans centuries of storytelling.
+            <span class="card-category bilingual"><span class="en">Music</span><span class="om">Muuziqaa</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">The Enduring Legacy of Oromo Folk Music</span>
+              <span class="om">Dhaalaa Muuziqaa Saba Oromoo Hin Dhabamne</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">From the soulful strains of the krar to modern Oromo pop, the musical tradition of the Oromo people spans centuries of storytelling.</span>
+              <span class="om">Muuziqaa krar irraa hanga muuziqaa pop Oromoo ammayyaa, aadaan muuziqaa saba Oromoo jaarraalee odeessa qabu hamata.</span>
             </p>
-            <a class="card-link" href="#culture" aria-label="Read more about Oromo folk music">Read more</a>
+            <a class="card-link bilingual" href="#culture" aria-label="Read more about Oromo folk music">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -198,13 +269,19 @@
             <span class="card-icon">📖</span>
           </div>
           <div class="card-body">
-            <span class="card-category">Language</span>
-            <h3 class="card-title">Afaan Oromoo: Africa's Most Spoken Cushitic Language</h3>
-            <p class="card-excerpt">
-              With over 40 million native speakers, Afaan Oromoo is now written in the
-              Latin-based Qubee script, a milestone for cultural preservation.
+            <span class="card-category bilingual"><span class="en">Language</span><span class="om">Afaan</span></span>
+            <h3 class="card-title bilingual">
+              <span class="en">Afaan Oromoo: Africa's Most Spoken Cushitic Language</span>
+              <span class="om">Afaan Oromoo: Afaan Kushitikii Hunda Caalaa Afrikaa Keessatti Dubbatamu</span>
+            </h3>
+            <p class="card-excerpt bilingual">
+              <span class="en">With over 40 million native speakers, Afaan Oromoo is now written in the Latin-based Qubee script, a milestone for cultural preservation.</span>
+              <span class="om">Dubbattoota asal-dhalootaa miliyoona 40 ol qabatee, Afaan Oromoo ammaa sirna Qubee Latin irratti hundaa'e keessatti barreeffama — mallattoo guddaa eegumsa aadaatiif.</span>
             </p>
-            <a class="card-link" href="#culture" aria-label="Read more about Afaan Oromoo language">Read more</a>
+            <a class="card-link bilingual" href="#culture" aria-label="Read more about Afaan Oromoo language">
+              <span class="en">Read more</span>
+              <span class="om">Dabalata Dubbisi</span>
+            </a>
           </div>
         </article>
 
@@ -213,55 +290,94 @@
 
     <!-- ---- Views ---- -->
     <section id="views" aria-labelledby="views-heading">
-      <h2 class="section-title" id="views-heading">Views &amp; Opinions</h2>
+      <h2 class="section-title bilingual" id="views-heading">
+        <span class="en">Views &amp; Opinions</span>
+        <span class="om">Yaadota fi Ilaalcha</span>
+      </h2>
 
       <figure class="blockquote-card">
-        <blockquote>
-          "Self-determination is not a privilege — it is the foundation of
+        <blockquote class="bilingual">
+          <span class="en">"Self-determination is not a privilege — it is the foundation of
           peace and prosperity for any people. The Oromo must have a voice
-          in shaping their own future."
+          in shaping their own future."</span>
+          <span class="om">"Of-murteessuu mirga addaa miti — bu'uura nagaa fi guddina ummata kamiifiyyuu. Oromoon sagalee mataa isaa qabaachuu qaba gara futura isaa uumuutti."</span>
         </blockquote>
-        <figcaption>— Community Elder, Oromia</figcaption>
+        <figcaption class="bilingual">
+          <span class="en">— Community Elder, Oromia</span>
+          <span class="om">— Maanguddoo Hawaasaa, Oromiyaa</span>
+        </figcaption>
       </figure>
 
       <figure class="blockquote-card">
-        <blockquote>
-          "Investing in Afaan Oromoo education is investing in the next
-          generation. Language is the backbone of culture and identity."
+        <blockquote class="bilingual">
+          <span class="en">"Investing in Afaan Oromoo education is investing in the next
+          generation. Language is the backbone of culture and identity."</span>
+          <span class="om">"Barnoota Afaan Oromoo keessatti maallaqni dhangalaasuun dhalota itti aanuu keessatti maallaqni dhangalaasudha. Afaan tuqaa murteessaa aadaa fi eenyummaa ti."</span>
         </blockquote>
-        <figcaption>— Education Advocate, Addis Ababa</figcaption>
+        <figcaption class="bilingual">
+          <span class="en">— Education Advocate, Addis Ababa</span>
+          <span class="om">— Deeggartuu Barnootaa, Finfinnee</span>
+        </figcaption>
       </figure>
 
       <figure class="blockquote-card">
-        <blockquote>
-          "The Oromo diaspora has a unique responsibility: to bridge
+        <blockquote class="bilingual">
+          <span class="en">"The Oromo diaspora has a unique responsibility: to bridge
           our communities abroad with those at home, bringing resources,
-          knowledge, and solidarity."
+          knowledge, and solidarity."</span>
+          <span class="om">"Diaspooran Oromoo itti gaafatama addaa qaba: hawaasota alaa fi biyya keessaa walitti hidhuuf, qabeenya, beekumsa fi tumsa fida."</span>
         </blockquote>
-        <figcaption>— Diaspora Activist, North America</figcaption>
+        <figcaption class="bilingual">
+          <span class="en">— Diaspora Activist, North America</span>
+          <span class="om">— Socho'aa Diasporaa, Ameerikaa Kaabaa</span>
+        </figcaption>
       </figure>
     </section>
 
     <!-- ---- About ---- -->
     <section id="about" aria-labelledby="about-heading">
-      <h2 class="section-title" id="about-heading">About This Site</h2>
+      <h2 class="section-title bilingual" id="about-heading">
+        <span class="en">About This Site</span>
+        <span class="om">Waa'ee Marsariitii Kanaa</span>
+      </h2>
       <div class="about-section">
-        <p>
-          <strong>Oromo News &amp; Views</strong> is an independent platform dedicated
-          to sharing timely news, cultural stories, and diverse perspectives from
-          the Oromo community — both within Oromia and across the global diaspora.
-        </p>
-        <p>
-          Our mission is to inform, connect, and amplify Oromo voices in a rapidly
-          changing world. We cover politics, economics, education, culture, sports,
-          and human rights with a commitment to accuracy and community service.
-        </p>
-        <p>
-          This site is built as a simple, open-source static website so that it
-          loads quickly on any device and can be hosted freely on GitHub Pages.
-          Contributions and feedback are welcome via the
-          <a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">GitHub repository</a>.
-        </p>
+        <div data-lang="en">
+          <p>
+            <strong>Oromo News &amp; Views</strong> is an independent platform dedicated
+            to sharing timely news, cultural stories, and diverse perspectives from
+            the Oromo community — both within Oromia and across the global diaspora.
+          </p>
+          <p>
+            Our mission is to inform, connect, and amplify Oromo voices in a rapidly
+            changing world. We cover politics, economics, education, culture, sports,
+            and human rights with a commitment to accuracy and community service.
+          </p>
+          <p>
+            This site is built as a simple, open-source static website so that it
+            loads quickly on any device and can be hosted freely on GitHub Pages.
+            Contributions and feedback are welcome via the
+            <a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">GitHub repository</a>.
+          </p>
+        </div>
+        <div data-lang="om">
+          <p>
+            <strong>Oduu fi Yaada Oromoo</strong> marsariitii bilisaa kan oduu yeroo isaa,
+            seenaalee aadaa, fi ilaalcha garagaraa hawaasa Oromoo irraa qooduu hundaa'e —
+            Oromiyaa keessattis ta'e diasporaa addunyaa guutuu.
+          </p>
+          <p>
+            Kaayyoon keenya sagalee Oromoo beeksisuu, walitti hidhuuf fi guddisuuf jira.
+            Siyaasaa, diinagdee, barnoota, aadaa, ispoortii fi mirga namoomaa hawwii sirrii
+            fi tajaajila hawaasaatiin hordofna.
+          </p>
+          <p>
+            Marsariitiin kun akka marsariitii saatatiikii salphaa, madda banaa kan meeshaa
+            kamiyyuu irratti saffisaan banamu fi GitHub Pages irratti bilisaan qabatamu ijaarame.
+            Galtee fi yaada
+            <a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">GitHub repository</a>
+            irraa simataama.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -273,41 +389,46 @@
 
       <div class="footer-col">
         <h2>Oromo News &amp; Views</h2>
-        <p>Independent reporting and cultural storytelling for and by the Oromo community.</p>
+        <p class="bilingual">
+          <span class="en">Independent reporting and cultural storytelling for and by the Oromo community.</span>
+          <span class="om">Gabaasaa bilisaa fi seenaa aadaa hawaasa Oromoo tiin fi hawaasa Oromoof.</span>
+        </p>
       </div>
 
       <div class="footer-col">
-        <h2>Sections</h2>
+        <h2 class="bilingual"><span class="en">Sections</span><span class="om">Kutaalee</span></h2>
         <ul>
-          <li><a href="#news">Latest News</a></li>
-          <li><a href="#culture">Culture &amp; Heritage</a></li>
-          <li><a href="#views">Views &amp; Opinions</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#news"    class="bilingual"><span class="en">Latest News</span><span class="om">Oduu Haaraa</span></a></li>
+          <li><a href="#culture" class="bilingual"><span class="en">Culture &amp; Heritage</span><span class="om">Aadaa fi Dhaalaa</span></a></li>
+          <li><a href="#views"   class="bilingual"><span class="en">Views &amp; Opinions</span><span class="om">Yaadota fi Ilaalcha</span></a></li>
+          <li><a href="#about"   class="bilingual"><span class="en">About</span><span class="om">Waa'ee Keenya</span></a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h2>Topics</h2>
+        <h2 class="bilingual"><span class="en">Topics</span><span class="om">Mata-dureelee</span></h2>
         <ul>
-          <li><a href="#news">Politics</a></li>
-          <li><a href="#news">Economy</a></li>
-          <li><a href="#news">Human Rights</a></li>
-          <li><a href="#news">Sports</a></li>
-          <li><a href="#culture">Language</a></li>
+          <li><a href="#news"    class="bilingual"><span class="en">Politics</span><span class="om">Siyaasaa</span></a></li>
+          <li><a href="#news"    class="bilingual"><span class="en">Economy</span><span class="om">Diinagdee</span></a></li>
+          <li><a href="#news"    class="bilingual"><span class="en">Human Rights</span><span class="om">Mirga Namoomaa</span></a></li>
+          <li><a href="#news"    class="bilingual"><span class="en">Sports</span><span class="om">Ispoortii</span></a></li>
+          <li><a href="#culture" class="bilingual"><span class="en">Language</span><span class="om">Afaan</span></a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h2>Repository</h2>
+        <h2 class="bilingual"><span class="en">Repository</span><span class="om">Koodii Madda</span></h2>
         <ul>
           <li>
-            <a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">
-              GitHub source
+            <a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer" class="bilingual">
+              <span class="en">GitHub source</span>
+              <span class="om">Madda GitHub</span>
             </a>
           </li>
           <li>
-            <a href="https://yabo1234.github.io/oromo3.html/" rel="noopener noreferrer">
-              Live site (GitHub Pages)
+            <a href="https://yabo1234.github.io/oromo3.html/" rel="noopener noreferrer" class="bilingual">
+              <span class="en">Live site (GitHub Pages)</span>
+              <span class="om">Marsariitii Jiraataa (GitHub Pages)</span>
             </a>
           </li>
         </ul>
@@ -316,13 +437,27 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Oromo News &amp; Views. Content provided for informational purposes.</p>
+      <p>&copy; <span id="year"></span>
+        <span class="bilingual">
+          <span class="en">Oromo News &amp; Views. Content provided for informational purposes.</span>
+          <span class="om">Oduu fi Yaada Oromoo. Qabiyyeen oddeeffannoo keessaatiif dhiyaateera.</span>
+        </span>
+      </p>
     </div>
   </footer>
 
-  <!-- Inline JS: tiny, non-blocking, sets current year only -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      var btnEn = document.getElementById('btn-en');
+      var btnOm = document.getElementById('btn-om');
+      btnEn.classList.toggle('active', lang === 'en');
+      btnOm.classList.toggle('active', lang === 'om');
+      btnEn.setAttribute('aria-pressed', lang === 'en');
+      btnOm.setAttribute('aria-pressed', lang === 'om');
+    }
   </script>
 
 </body>

@@ -68,6 +68,42 @@ ul, ol {
   padding-left: 1.4rem;
 }
 
+/* ---------- Language Toggle ---------- */
+.lang-toggle {
+  display: flex;
+  gap: 0;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 4px 14px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background var(--transition), color var(--transition);
+}
+
+.lang-toggle button.active {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+/* ---------- Bilingual Visibility ---------- */
+[data-lang] { display: none; }
+html[lang="en"] [data-lang="en"] { display: block; }
+html[lang="om"] [data-lang="om"] { display: block; }
+
+.bilingual .en,
+.bilingual .om { display: none; }
+html[lang="en"] .bilingual .en { display: inline; }
+html[lang="om"] .bilingual .om { display: inline; }
+
 /* ---------- Skip Link ---------- */
 .skip-link {
   position: absolute;
