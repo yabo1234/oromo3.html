@@ -71,12 +71,16 @@
     /* ── Search ──────────────────────────────────────────── */
     var searchInput = qs('search-input');
     if (searchInput) {
+      /* Cache lowercased text at load time for fast filtering */
+      var cardEntries = Array.prototype.map.call(
+        document.querySelectorAll('.card'),
+        function (card) { return { el: card, text: card.textContent.toLowerCase() }; }
+      );
+
       searchInput.addEventListener('input', function () {
         var q = this.value.trim().toLowerCase();
-        var cards = document.querySelectorAll('.card');
-        cards.forEach(function (card) {
-          var text = card.textContent.toLowerCase();
-          card.style.display = (!q || text.includes(q)) ? '' : 'none';
+        cardEntries.forEach(function (entry) {
+          entry.el.style.display = (!q || entry.text.includes(q)) ? '' : 'none';
         });
       });
     }

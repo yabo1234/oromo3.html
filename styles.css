@@ -824,12 +824,18 @@ section {
 /* ---------- Responsive ---------- */
 @media (max-width: 600px) {
   .header-inner {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
   .nav-toggle {
     display: flex;
+    order: 2;
+    margin-left: auto;
+  }
+
+  .header-controls {
+    order: 3;
   }
 
   .site-nav {
