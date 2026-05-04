@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title class="bilingual"><span class="en">Oromo News &amp; Views</span><span class="om">Oduu fi Yaada Oromoo</span></title>
+  <title>Oromo News &amp; Views</title>
   <meta name="description" content="Stay informed with the latest Oromo news, cultural insights, history, and community voices from across the globe." />
+
+  <!-- Bilingual SEO -->
+  <link rel="alternate" hreflang="en" href="https://yabo1234.github.io/oromo3.html/" />
+  <link rel="alternate" hreflang="om" href="https://yabo1234.github.io/oromo3.html/?lang=om" />
+  <link rel="alternate" hreflang="x-default" href="https://yabo1234.github.io/oromo3.html/" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
@@ -18,7 +23,6 @@
   <meta name="twitter:title"       content="Oromo News &amp; Views" />
   <meta name="twitter:description" content="Latest Oromo news, culture, and community voices." />
 
-  <!-- Shared stylesheet — deferred paint is not blocking -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -36,7 +40,11 @@
         Oromo <span>News &amp; Views</span>
       </a>
 
-      <nav class="site-nav" aria-label="Main navigation">
+      <!-- Hamburger (mobile only) -->
+      <button id="btn-nav" class="nav-toggle" onclick="toggleNav()"
+              aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
         <ul>
           <li><a href="#news"    aria-current="page" class="bilingual"><span class="en">News</span><span class="om">Oduu</span></a></li>
           <li><a href="#culture" class="bilingual"><span class="en">Culture</span><span class="om">Aadaa</span></a></li>
@@ -45,9 +53,14 @@
         </ul>
       </nav>
 
-      <div class="lang-toggle" role="group" aria-label="Language selector">
-        <button id="btn-en" class="active" onclick="setLang('en')" aria-pressed="true">EN</button>
-        <button id="btn-om"                onclick="setLang('om')" aria-pressed="false">OM</button>
+      <div class="header-controls">
+        <button id="btn-theme" class="theme-toggle" onclick="toggleTheme()"
+                aria-pressed="false" aria-label="Switch to dark mode">🌙</button>
+
+        <div class="lang-toggle" role="group" aria-label="Language selector">
+          <button id="btn-en" class="active" onclick="setLang('en')" aria-pressed="true">EN</button>
+          <button id="btn-om"                onclick="setLang('om')" aria-pressed="false">OM</button>
+        </div>
       </div>
     </div>
   </header>
@@ -77,6 +90,16 @@
   <!-- ===================== MAIN ===================== -->
   <main id="main-content">
 
+    <!-- ---- Search ---- -->
+    <div class="search-wrap" role="search">
+      <label for="search-input" class="visually-hidden bilingual">
+        <span class="en">Search articles</span>
+        <span class="om">Barruulee barbaacha</span>
+      </label>
+      <input id="search-input" class="search-input" type="search" autocomplete="off"
+             placeholder="🔍 Search / Barbaacha…" aria-label="Search articles" />
+    </div>
+
     <!-- ---- Latest News ---- -->
     <section id="news" aria-labelledby="news-heading">
       <h2 class="section-title bilingual" id="news-heading">
@@ -99,7 +122,7 @@
               <span class="en">Representatives from across Oromia met to discuss inclusive governance and sustainable development in the region.</span>
               <span class="om">Bakka bu'ooti Oromiyaa guutuu marii bulchiinsa hammataa fi guddinaa bara dheeraa naannoo keessatti argamuuf walitti qabaman.</span>
             </p>
-            <a class="card-link bilingual" href="#news" aria-label="Read more about community leaders and regional governance">
+            <a class="card-link bilingual" href="articles/governance-dialogue.html" aria-label="Read more about community leaders and regional governance">
               <span class="en">Read more</span>
               <span class="om">Dabalata Dubbisi</span>
             </a>
@@ -120,7 +143,7 @@
               <span class="en">New policy initiatives target smallholder farmers in Oromia, aiming to improve yields and market access through cooperative models.</span>
               <span class="om">Sagantaalee qajeelfama haaraan qonnaawwan xiqaa Oromiyaa keessatti xiyyeeffatu — oomisha fooyyessuu fi gabaa galuuf gargaaru.</span>
             </p>
-            <a class="card-link bilingual" href="#news" aria-label="Read more about agricultural reforms">
+            <a class="card-link bilingual" href="articles/agriculture-2026.html" aria-label="Read more about agricultural reforms">
               <span class="en">Read more</span>
               <span class="om">Dabalata Dubbisi</span>
             </a>
@@ -141,7 +164,7 @@
               <span class="en">A volunteer-led program has helped thousands of adults gain literacy in Afaan Oromoo, the most widely spoken Cushitic language in Africa.</span>
               <span class="om">Sagantaa hoggansa fedhii tiin guuzaa namoota gurrachessuu Afaan Oromoo baruuf gargaaree — afaan Kushitikii hunda caalaa Afrikaa keessatti dubbatamu.</span>
             </p>
-            <a class="card-link bilingual" href="#news" aria-label="Read more about the literacy program">
+            <a class="card-link bilingual" href="articles/afaan-oromoo-literacy.html" aria-label="Read more about the literacy program">
               <span class="en">Read more</span>
               <span class="om">Dabalata Dubbisi</span>
             </a>
@@ -236,7 +259,7 @@
               <span class="en">Celebrated at Hora Arsadi Lake, Irreecha is a vibrant annual thanksgiving festival where millions gather to express gratitude for life and nature.</span>
               <span class="om">Haroo Arsadii irratti kabajamu, Irreechaan ayyaana galateeffannaa waggaa waggaa kan kuma hedduun walitti qabamee jireenyaa fi uumaa galateeffatanidha.</span>
             </p>
-            <a class="card-link bilingual" href="#culture" aria-label="Read more about Irreecha festival">
+            <a class="card-link bilingual" href="articles/irreecha-festival.html" aria-label="Read more about Irreecha festival">
               <span class="en">Read more</span>
               <span class="om">Dabalata Dubbisi</span>
             </a>
@@ -381,6 +404,28 @@
       </div>
     </section>
 
+    <!-- ---- Newsletter ---- -->
+    <section class="newsletter-section" aria-labelledby="newsletter-heading">
+      <div data-lang="en">
+        <h2 id="newsletter-heading">Stay Informed</h2>
+        <p>Subscribe to receive the latest Oromo news and cultural stories in your inbox.</p>
+      </div>
+      <div data-lang="om">
+        <h2>Odeeffannoo Argachuu Itti Fufaa</h2>
+        <p>Oduu fi seenaa aadaa Oromoo haaraa imeelii keessanitti argachuuf maqaa galmeessaa.</p>
+      </div>
+      <form id="newsletter-form" class="newsletter-form" novalidate>
+        <input class="newsletter-input" type="email" name="email"
+               placeholder="your@email.com" autocomplete="email" required
+               aria-label="Email address" />
+        <button type="submit" class="newsletter-submit bilingual">
+          <span class="en">Subscribe</span>
+          <span class="om">Maqaa Galmeessi</span>
+        </button>
+      </form>
+      <p id="newsletter-msg" class="newsletter-msg" hidden></p>
+    </section>
+
   </main>
 
   <!-- ===================== FOOTER ===================== -->
@@ -446,19 +491,7 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function setLang(lang) {
-      document.documentElement.lang = lang;
-      var btnEn = document.getElementById('btn-en');
-      var btnOm = document.getElementById('btn-om');
-      btnEn.classList.toggle('active', lang === 'en');
-      btnOm.classList.toggle('active', lang === 'om');
-      btnEn.setAttribute('aria-pressed', lang === 'en');
-      btnOm.setAttribute('aria-pressed', lang === 'om');
-    }
-  </script>
+  <script src="shared.js"></script>
 
 </body>
 </html>

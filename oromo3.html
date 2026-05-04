@@ -465,26 +465,6 @@
   </footer>
 
   <script>
-    /* ── Language switcher ── */
-    function setLang(lang) {
-      document.documentElement.lang = lang;
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.getElementById('btn-om').classList.toggle('active', lang === 'om');
-      updatePlaceholders(lang);
-    }
-
-    function updatePlaceholders(lang) {
-      const labels = {
-        en: { name: 'Your Name', email: 'Your Email', subject: 'Subject', message: 'Your message…' },
-        om: { name: 'Maqaa Keessan', email: 'Imeeyilii Keessan', subject: 'Mata-Duree', message: 'Ergaa keessan…' }
-      };
-      const l = labels[lang];
-      document.getElementById('cf-name').placeholder    = l.name;
-      document.getElementById('cf-email').placeholder   = l.email;
-      document.getElementById('cf-subject').placeholder = l.subject;
-      document.getElementById('cf-message').placeholder = l.message;
-    }
-
     /* ── Contact form ── */
     function handleSubmit(e) {
       e.preventDefault();
@@ -492,8 +472,25 @@
       e.target.reset();
     }
 
-    /* ── Init ── */
-    updatePlaceholders('en');
+    /* ── Update contact-form placeholders when lang changes ── */
+    (function patchSetLang() {
+      var _origSet = window.setLang;
+      window.setLang = function (lang) {
+        if (_origSet) _origSet(lang);
+        var labels = {
+          en: { name: 'Your Name', email: 'Your Email', subject: 'Subject', message: 'Your message…' },
+          om: { name: 'Maqaa Keessan', email: 'Imeeyilii Keessan', subject: 'Mata-Duree', message: 'Ergaa keessan…' }
+        };
+        var l = labels[lang] || labels['en'];
+        ['cf-name','cf-email','cf-subject','cf-message'].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          var key = id.replace('cf-', '');
+          if (l[key]) el.placeholder = l[key];
+        });
+      };
+    }());
   </script>
+  <script src="shared.js"></script>
 </body>
 </html>
