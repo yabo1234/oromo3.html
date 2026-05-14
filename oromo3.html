@@ -3,494 +3,284 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oromo3 – Bilingual News &amp; Views</title>
-  <style>
-    /* ── Reset & base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --green:  #006400;
-      --red:    #cc0000;
-      --black:  #111111;
-      --light:  #f5f5f5;
-      --white:  #ffffff;
-      --card-shadow: 0 3px 12px rgba(0,0,0,.12);
-      --radius: 10px;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--light);
-      color: var(--black);
-      line-height: 1.6;
-    }
+  <title>France &amp; Africa | Commentary and Analysis</title>
+  <meta name="description" content="A redesigned analysis site explaining why France is changing its relationship with Africa, with commentary, themes, and key developments." />
 
-    /* ── Navbar ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      height: 60px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.3);
-    }
-    .nav-brand {
-      color: var(--white);
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 6px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,.85);
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: .95rem;
-      transition: background .2s;
-    }
-    .nav-links a:hover { background: rgba(255,255,255,.18); color: #fff; }
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="France &amp; Africa | Commentary and Analysis" />
+  <meta property="og:description" content="A modern editorial site exploring why France is changing its relationship with Africa." />
+  <meta property="og:url" content="https://yabo1234.github.io/oromo3.html/oromo3.html" />
 
-    /* language toggle */
-    .lang-toggle {
-      display: flex;
-      gap: 0;
-      border: 2px solid rgba(255,255,255,.6);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .lang-toggle button {
-      background: transparent;
-      border: none;
-      color: rgba(255,255,255,.75);
-      padding: 4px 14px;
-      cursor: pointer;
-      font-size: .85rem;
-      font-weight: 600;
-      transition: background .2s, color .2s;
-    }
-    .lang-toggle button.active {
-      background: var(--white);
-      color: var(--green);
-    }
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="France &amp; Africa | Commentary and Analysis" />
+  <meta name="twitter:description" content="A modern editorial site exploring why France is changing its relationship with Africa." />
 
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, var(--green) 0%, #004d00 60%, var(--red) 100%);
-      color: var(--white);
-      text-align: center;
-      padding: 80px 24px 60px;
-    }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 12px; }
-    .hero p  { font-size: clamp(1rem, 2.5vw, 1.3rem); opacity: .9; max-width: 640px; margin: 0 auto 28px; }
-    .hero-btn {
-      display: inline-block;
-      background: var(--white);
-      color: var(--green);
-      font-weight: 700;
-      padding: 12px 32px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
-
-    /* ── Section wrappers ── */
-    section { padding: 60px 24px; }
-    section:nth-child(even) { background: var(--white); }
-    .section-inner { max-width: 1000px; margin: 0 auto; }
-    .section-title {
-      font-size: 1.7rem;
-      color: var(--green);
-      margin-bottom: 8px;
-      border-left: 5px solid var(--red);
-      padding-left: 14px;
-    }
-    .section-subtitle { color: #555; margin-bottom: 32px; font-size: .97rem; }
-
-    /* ── News cards ── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.16); }
-    .card-img {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-    .card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
-    .card-tag {
-      display: inline-block;
-      background: var(--green);
-      color: var(--white);
-      font-size: .72rem;
-      font-weight: 700;
-      padding: 2px 10px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-    .card-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--black); }
-    .card-text  { font-size: .9rem; color: #555; flex: 1; }
-    .card-date  { font-size: .8rem; color: #999; margin-top: 12px; }
-
-    /* ── About ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: start;
-    }
-    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
-    .about-box {
-      background: var(--light);
-      border-radius: var(--radius);
-      padding: 28px;
-      border-left: 5px solid var(--green);
-    }
-    .about-box h3 { margin-bottom: 10px; color: var(--green); }
-
-    /* ── Contact ── */
-    .contact-form {
-      display: grid;
-      gap: 16px;
-      max-width: 560px;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: .97rem;
-      font-family: inherit;
-      transition: border-color .2s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus { outline: none; border-color: var(--green); }
-    .contact-form textarea { resize: vertical; min-height: 120px; }
-    .submit-btn {
-      background: var(--green);
-      color: var(--white);
-      border: none;
-      padding: 13px 36px;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s, transform .2s;
-      width: fit-content;
-    }
-    .submit-btn:hover { background: #004d00; transform: translateY(-1px); }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--black);
-      color: rgba(255,255,255,.6);
-      text-align: center;
-      padding: 28px 16px;
-      font-size: .88rem;
-    }
-    footer span { color: var(--white); font-weight: 600; }
-
-    /* ── Language-driven visibility ── */
-    [data-lang] { display: none; }
-    html[lang="en"] [data-lang="en"] { display: block; }
-    html[lang="en"] [data-lang="en"].inline { display: inline; }
-    html[lang="om"] [data-lang="om"] { display: block; }
-    html[lang="om"] [data-lang="om"].inline { display: inline; }
-
-    /* inline spans inside shared elements */
-    .bilingual .en, .bilingual .om { display: none; }
-    html[lang="en"] .bilingual .en { display: inline; }
-    html[lang="om"] .bilingual .om { display: inline; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- ══════════ NAVBAR ══════════ -->
-  <nav>
-    <a class="nav-brand" href="#home">Oromo3</a>
-    <ul class="nav-links">
-      <li><a href="#home"    class="bilingual"><span class="en">Home</span><span class="om">Mana</span></a></li>
-      <li><a href="#news"    class="bilingual"><span class="en">News</span><span class="om">Oduu</span></a></li>
-      <li><a href="#about"   class="bilingual"><span class="en">About</span><span class="om">Waa'ee Keenya</span></a></li>
-      <li><a href="#contact" class="bilingual"><span class="en">Contact</span><span class="om">Nu Quunnamaa</span></a></li>
-    </ul>
-    <div class="lang-toggle">
-      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-      <button id="btn-om"                onclick="setLang('om')">OM</button>
-    </div>
-  </nav>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html" aria-label="France and Africa home">
+        France <span>&amp; Africa</span>
+      </a>
 
-  <!-- ══════════ HERO ══════════ -->
-  <div class="hero" id="home">
-    <div data-lang="en">
-      <h1>🌍 Welcome to Oromo3</h1>
-      <p>Your trusted source for Oromo news, culture, and views — in English and Afaan Oromoo.</p>
-      <a class="hero-btn" href="#news">Read the News</a>
-    </div>
-    <div data-lang="om">
-      <h1>🌍 Baga Nagaan Dhuftan – Oromo3</h1>
-      <p>Madda oduu, aadaa fi yaada Oromoo isin amanamaa – Afaan Oromoo fi Ingliffaan.</p>
-      <a class="hero-btn" href="#news">Oduu Dubbisi</a>
-    </div>
-  </div>
+      <button id="btn-nav" class="nav-toggle" onclick="toggleNav()"
+              aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
 
-  <!-- ══════════ NEWS ══════════ -->
-  <section id="news">
-    <div class="section-inner">
-      <div data-lang="en">
-        <h2 class="section-title">Latest News</h2>
-        <p class="section-subtitle">Stay up to date with what is happening in Oromia and across the world.</p>
-      </div>
-      <div data-lang="om">
-        <h2 class="section-title">Oduu Haaraa</h2>
-        <p class="section-subtitle">Waan Oromiyaa fi addunyaa keessatti ta'aa jiru hordofaa.</p>
-      </div>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#overview" aria-current="page">Overview</a></li>
+          <li><a href="#commentary">Commentary</a></li>
+          <li><a href="#drivers">Key Drivers</a></li>
+          <li><a href="#debate">Debate</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
 
-      <div class="cards">
-
-        <!-- Card 1 -->
-        <div class="card">
-          <div class="card-img" style="background:#e8f5e9;">🕊️</div>
-          <div class="card-body">
-            <span class="card-tag bilingual"><span class="en">Politics</span><span class="om">Siyaasaa</span></span>
-            <div class="card-title bilingual">
-              <span class="en">Community leaders call for inclusive dialogue in Oromia</span>
-              <span class="om">Hoggantoonni hawaasaa Oromiyaa keessatti marii hunda hammatu waaman</span>
-            </div>
-            <p class="card-text bilingual">
-              <span class="en">Representatives from several zones urged broader public consultation, peaceful engagement, and transparent regional decision-making.</span>
-              <span class="om">Bakka bu'oonni zoonii hedduu irraa dhufan marii uummataa bal'aa, hirmaannaa nagaa fi murtee mootummaa naannoo iftoomina qabu cimsuuf waamicha dhiyeessan.</span>
-            </p>
-            <div class="card-date">📅 <span class="bilingual"><span class="en">May 9, 2026</span><span class="om">Caamsaa 9, 2026</span></span></div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="card">
-          <div class="card-img" style="background:#fff3e0;">🌾</div>
-          <div class="card-body">
-            <span class="card-tag bilingual"><span class="en">Agriculture</span><span class="om">Qonnaa</span></span>
-            <div class="card-title bilingual">
-              <span class="en">Farm cooperatives expand seed and irrigation access</span>
-              <span class="om">Waldaan hojii gamtaa sanyii fi bishaan obaasaa babal'ise</span>
-            </div>
-            <p class="card-text bilingual">
-              <span class="en">New cooperative programs are helping smallholder farmers access improved seed, water-saving irrigation, and stronger local markets.</span>
-              <span class="om">Sagantaaleen hojii gamtaa haaraan qonnaan bultoota xixiqqaa sanyii filatamaa, bishaan obaasaa qusannoo qabu fi gabaa naannoo jabaa argachuuf gargaaraa jiru.</span>
-            </p>
-            <div class="card-date">📅 <span class="bilingual"><span class="en">May 8, 2026</span><span class="om">Caamsaa 8, 2026</span></span></div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card">
-          <div class="card-img" style="background:#fce4ec;">🎓</div>
-          <div class="card-body">
-            <span class="card-tag bilingual"><span class="en">Education</span><span class="om">Barnoota</span></span>
-            <div class="card-title bilingual">
-              <span class="en">Afaan Oromoo literacy efforts reach more rural communities</span>
-              <span class="om">Sochiin barnoota Afaan Oromoo hawaasa baadiyyaa dabalataa bira gahe</span>
-            </div>
-            <p class="card-text bilingual">
-              <span class="en">Volunteer teachers and local organisers report growing enrolment as community-based reading programs spread across rural districts.</span>
-              <span class="om">Barsiisonni fedhiidhaan tajaajilan fi qindeessitoonni naannoo sagantaaleen dubbisuu hawaasa irratti hundaa'an aanaalee baadiyyaa keessatti babal'achaa deemuun galmeen dabalaa jira jedhan.</span>
-            </p>
-            <div class="card-date">📅 <span class="bilingual"><span class="en">May 7, 2026</span><span class="om">Caamsaa 7, 2026</span></span></div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card">
-          <div class="card-img" style="background:#e3f2fd;">🌍</div>
-          <div class="card-body">
-            <span class="card-tag bilingual"><span class="en">Diaspora</span><span class="om">Diasporaa</span></span>
-            <div class="card-title bilingual">
-              <span class="en">Diaspora groups support drought-affected families</span>
-              <span class="om">Gareewwan diasporaa maatii hongeen miidhaman deeggaruu itti fufan</span>
-            </div>
-            <p class="card-text bilingual">
-              <span class="en">Oromo associations in North America and Europe have continued fundraising and emergency support for families facing severe drought conditions.</span>
-              <span class="om">Waldaaleen Oromoo Ameerikaa Kaabaa fi Awurooppaa keessa jiran maatii hongee cimaaf saaxilaman gargaaruuf mootummaa alaa irraa deeggarsa ariifachiisaa fi maallaqa walitti qabuu itti fufan.</span>
-            </p>
-            <div class="card-date">📅 <span class="bilingual"><span class="en">May 6, 2026</span><span class="om">Caamsaa 6, 2026</span></span></div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="card">
-          <div class="card-img" style="background:#f3e5f5;">⚖️</div>
-          <div class="card-body">
-            <span class="card-tag bilingual"><span class="en">Human Rights</span><span class="om">Mirga Namoomaa</span></span>
-            <div class="card-title bilingual">
-              <span class="en">Civil groups urge protection for displaced communities</span>
-              <span class="om">Gareewwan sivikii hawaasota buqqaatan eegumsa akka argatan gaafatan</span>
-            </div>
-            <p class="card-text bilingual">
-              <span class="en">Advocacy organisations called for transparent compensation, safe resettlement, and independent monitoring in affected areas.</span>
-              <span class="om">Dhaabbileen falmii mirgaa kaffaltii iftoomina qabu, deebii qubsumaa nageenya qabu fi hordoffii walaba naannolee miidhaman keessatti akka jiraatu gaafatan.</span>
-            </p>
-            <div class="card-date">📅 <span class="bilingual"><span class="en">May 5, 2026</span><span class="om">Caamsaa 5, 2026</span></span></div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="card">
-          <div class="card-img" style="background:#e0f7fa;">🏃</div>
-          <div class="card-body">
-            <span class="card-tag bilingual"><span class="en">Sports</span><span class="om">Ispoortii</span></span>
-            <div class="card-title bilingual">
-              <span class="en">Oromo athletes post strong results in international races</span>
-              <span class="om">Atileetonni Oromoo dorgommii idil-addunyaa keessatti bu'aa cimaa galmeessan</span>
-            </div>
-            <p class="card-text bilingual">
-              <span class="en">Distance runners from Oromia recorded standout finishes abroad, inspiring young athletes and renewing interest in local training programs.</span>
-              <span class="om">Fiigdoonni fageenya dheeraa Oromiyaa irraa dorgommii biyya alaa keessatti bu'aa gaarii galmeessuun dargaggoota kakaasanii sagantaalee leenjii naannoo irratti fedhii haaromsan.</span>
-            </p>
-            <div class="card-date">📅 <span class="bilingual"><span class="en">May 4, 2026</span><span class="om">Caamsaa 4, 2026</span></span></div>
-          </div>
-        </div>
-
-      </div><!-- .cards -->
-    </div><!-- .section-inner -->
-  </section>
-
-  <!-- ══════════ ABOUT ══════════ -->
-  <section id="about">
-    <div class="section-inner">
-      <div data-lang="en">
-        <h2 class="section-title">About Oromo3</h2>
-        <p class="section-subtitle">Who we are and what we stand for.</p>
-      </div>
-      <div data-lang="om">
-        <h2 class="section-title">Waa'ee Oromo3</h2>
-        <p class="section-subtitle">Eenyuu akka taane fi maal irratti akka dhaabbanne.</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-box">
-          <h3 class="bilingual"><span class="en">🎯 Our Mission</span><span class="om">🎯 Kaayyoo Keenya</span></h3>
-          <p class="bilingual">
-            <span class="en">Oromo3 is dedicated to delivering accurate, timely, and unbiased news about the Oromo people, Oromia, and the wider world — in both English and Afaan Oromoo.</span>
-            <span class="om">Oromo3 oduu sirrii, yeroo isaa fi qulqullina qabu waa'ee saba Oromoo, Oromiyaa fi addunyaa bal'aa – Afaan Oromoo fi Ingliffaan – kennuuf carraaqna.</span>
-          </p>
-        </div>
-        <div class="about-box">
-          <h3 class="bilingual"><span class="en">🌍 Our Vision</span><span class="om">🌍 Mul'ata Keenya</span></h3>
-          <p class="bilingual">
-            <span class="en">We envision a world where every Oromo speaker has access to news and information in their own language, bridging communities across the globe.</span>
-            <span class="om">Addunyaa keessatti kan hunda dura dubbataan Afaan Oromoo oduu fi odeeffannoo afaan ofii isaanitiin argachuu danda'u ilaalla — hawaasota addunyaa guutuu walitti hidhna.</span>
-          </p>
-        </div>
-        <div class="about-box">
-          <h3 class="bilingual"><span class="en">📰 Editorial Values</span><span class="om">📰 Gatii Editooriyaalaa</span></h3>
-          <p class="bilingual">
-            <span class="en">We uphold accuracy, fairness, independence, and respect for cultural identity in every story we publish.</span>
-            <span class="om">Oduu hunda keessatti sirrummaa, haqa, of-danda'ummaa fi kabaja eenyummaa aadaa eegna.</span>
-          </p>
-        </div>
-        <div class="about-box">
-          <h3 class="bilingual"><span class="en">🤝 Community Focus</span><span class="om">🤝 Xiyyeeffannaa Hawaasaa</span></h3>
-          <p class="bilingual">
-            <span class="en">Oromo3 was built by and for the Oromo community — at home in Oromia and across the diaspora worldwide.</span>
-            <span class="om">Oromo3 hawaasa Oromootiin fi hawaasa Oromoof ijaarame — naannoo Oromiyaa keessattis ta'e diaspoora addunyaa keessatti.</span>
-          </p>
-        </div>
+      <div class="header-controls">
+        <button id="btn-theme" class="theme-toggle" onclick="toggleTheme()"
+                aria-pressed="false" aria-label="Switch to dark mode">🌙</button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- ══════════ CONTACT ══════════ -->
-  <section id="contact">
-    <div class="section-inner">
-      <div data-lang="en">
-        <h2 class="section-title">Contact Us</h2>
-        <p class="section-subtitle">Have a story tip or feedback? Reach out — we'd love to hear from you.</p>
-      </div>
-      <div data-lang="om">
-        <h2 class="section-title">Nu Quunnamaa</h2>
-        <p class="section-subtitle">Yaada oduu ykn yaada qabaattaa? Nu quunnamaa — isinii dhaggeeffachuu barbaanna.</p>
-      </div>
-
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <input type="text" id="cf-name" placeholder="" required />
-        <input type="email" id="cf-email" placeholder="" required />
-        <input type="text" id="cf-subject" placeholder="" required />
-        <textarea id="cf-message" placeholder="" required></textarea>
-        <button type="submit" class="submit-btn bilingual">
-          <span class="en">Send Message</span>
-          <span class="om">Ergaa Ergi</span>
-        </button>
-      </form>
-      <p id="form-success" style="display:none; margin-top:16px; color:var(--green); font-weight:600;" class="bilingual">
-        <span class="en">✅ Thank you! Your message has been sent.</span>
-        <span class="om">✅ Galatoomaa! Ergaan keessan erggamee jira.</span>
+  <section class="hero" aria-labelledby="hero-heading">
+    <div data-lang="en" style="display:block;">
+      <p class="hero-kicker">Geopolitics • Sovereignty • Influence</p>
+      <h1 id="hero-heading">Why France is <span>changing its relationship with Africa</span></h1>
+      <p>
+        A rebuilt editorial homepage focused on the political, economic, and strategic
+        reasons behind France's changing role across the African continent.
       </p>
+      <a class="btn btn-primary" href="#commentary">Read Commentary</a>
+      <a class="btn btn-outline" href="#drivers">Explore Key Drivers</a>
     </div>
   </section>
 
-  <!-- ══════════ FOOTER ══════════ -->
-  <footer>
-    <p>&copy; 2026 <span>Oromo3</span>. 
-      <span class="bilingual" style="display:inline;">
-        <span class="en">All rights reserved. Built with ❤️ for the Oromo community.</span>
-        <span class="om">Mirgi hundi eegamaa jira. ❤️ hawaasa Oromoof ijaarame.</span>
-      </span>
-    </p>
+  <main id="main-content">
+    <div class="search-wrap" role="search">
+      <label for="search-input" class="visually-hidden">Search articles</label>
+      <input id="search-input" class="search-input" type="search" autocomplete="off"
+             placeholder="🔍 Search sovereignty, military, trade, youth..." aria-label="Search articles" />
+    </div>
+
+    <section class="featured-panel" aria-label="Lead analysis">
+      <div class="featured-copy">
+        <p class="eyebrow">Lead Analysis</p>
+        <h2>France is adapting because the old model of influence no longer works the way it once did</h2>
+        <p>
+          Public opinion, military setbacks, changing alliances, and stronger demands for sovereignty
+          are forcing Paris to replace older habits of control with a language of partnership.
+        </p>
+      </div>
+      <div class="featured-stats" aria-label="Key themes">
+        <div><strong>4</strong><span>major forces shaping the shift</span></div>
+        <div><strong>1</strong><span>central question: partnership or repositioning?</span></div>
+        <div><strong>New</strong><span>era of contested influence</span></div>
+      </div>
+    </section>
+
+    <section id="overview" aria-labelledby="overview-heading">
+      <h2 class="section-title" id="overview-heading">Overview</h2>
+      <div class="about-section">
+        <p><strong>The short answer:</strong> France is changing its relationship with Africa because African states and societies are demanding more sovereignty, more respect, and more balanced partnerships.</p>
+        <p><strong>The pressure points:</strong> Anti-French sentiment, failed security strategies in the Sahel, competition from other global powers, and the rise of younger politically conscious populations have made the previous approach difficult to sustain.</p>
+        <p><strong>The open question:</strong> Is France building a genuinely new relationship, or simply adjusting its language while trying to preserve influence in a different form?</p>
+      </div>
+    </section>
+
+    <section id="commentary" aria-labelledby="commentary-heading">
+      <h2 class="section-title" id="commentary-heading">Commentary</h2>
+      <figure class="blockquote-card">
+        <blockquote>
+          France is changing its relation with Africa not only because Africa is changing, but because Africans are increasingly refusing relationships defined by dependency, military tutelage, or symbolic diplomacy without equal power.
+        </blockquote>
+        <figcaption>Editorial commentary</figcaption>
+      </figure>
+      <div class="about-section">
+        <p>
+          For decades, France tried to maintain a privileged role in parts of Africa through security ties,
+          elite networks, economic links, language, and diplomatic influence. But that system has steadily lost legitimacy.
+          In many countries, especially among younger generations, France is no longer seen automatically as a trusted partner.
+          It is often viewed through the memory of colonialism, unequal intervention, and selective support for ruling elites.
+        </p>
+        <p>
+          Recent years made this crisis harder to hide. Military partnerships in the Sahel did not produce the stability many people were promised.
+          Instead, frustration grew, leaders were challenged, and France became an easy symbol of a wider political failure.
+          At the same time, African governments gained more room to diversify their international relationships, turning to new partners for weapons,
+          trade, investment, energy, and diplomatic backing.
+        </p>
+        <p>
+          That is why France now speaks more about listening, cultural exchange, entrepreneurship, education, and mutual respect.
+          This is partly strategic realism: Paris knows it cannot act as before. But it is also a test. If the new approach still avoids structural equality,
+          local accountability, and honest engagement with the past, many Africans will see it as rebranding rather than transformation.
+        </p>
+      </div>
+    </section>
+
+    <section id="drivers" aria-labelledby="drivers-heading">
+      <h2 class="section-title" id="drivers-heading">Key Drivers</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🗳️</span></div>
+          <div class="card-body">
+            <span class="card-category">Sovereignty</span>
+            <h3 class="card-title">African publics are demanding more independent decision-making</h3>
+            <p class="card-excerpt">Citizens and activists increasingly reject outside influence over security, currency, political transitions, and long-term national priorities.</p>
+            <a class="card-link" href="#commentary">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🪖</span></div>
+          <div class="card-body">
+            <span class="card-category">Security</span>
+            <h3 class="card-title">Military setbacks weakened France's image as a stabilizing power</h3>
+            <p class="card-excerpt">Security cooperation lost credibility where people saw prolonged instability, civilian insecurity, and limited political progress.</p>
+            <a class="card-link" href="#debate">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🌍</span></div>
+          <div class="card-body">
+            <span class="card-category">Competition</span>
+            <h3 class="card-title">New global actors have reduced France's traditional dominance</h3>
+            <p class="card-excerpt">China, Russia, Turkey, Gulf states, and others offer African governments additional diplomatic and economic options.</p>
+            <a class="card-link" href="#drivers">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">📱</span></div>
+          <div class="card-body">
+            <span class="card-category">Public Opinion</span>
+            <h3 class="card-title">Digital media amplified anti-French sentiment and political scrutiny</h3>
+            <p class="card-excerpt">Social platforms gave younger audiences space to challenge official narratives and connect local frustrations to broader geopolitical criticism.</p>
+            <a class="card-link" href="#overview">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">💼</span></div>
+          <div class="card-body">
+            <span class="card-category">Economy</span>
+            <h3 class="card-title">Economic relations are under pressure to become more balanced</h3>
+            <p class="card-excerpt">There is stronger demand for local industry, fairer terms, skills transfer, and less extractive partnership models.</p>
+            <a class="card-link" href="#drivers">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🧭</span></div>
+          <div class="card-body">
+            <span class="card-category">Identity</span>
+            <h3 class="card-title">Historical memory continues to shape today's diplomacy</h3>
+            <p class="card-excerpt">Colonial history still influences how gestures, alliances, apologies, and interventions are interpreted across the continent.</p>
+            <a class="card-link" href="#debate">Read more</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="debate" aria-labelledby="debate-heading">
+      <h2 class="section-title" id="debate-heading">Debate</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">⚖️</span></div>
+          <div class="card-body">
+            <span class="card-category">Question</span>
+            <h3 class="card-title">Is this a sincere reset or a strategic retreat?</h3>
+            <p class="card-excerpt">Supporters say France is modernizing its diplomacy. Critics say it is merely adapting its image after losing leverage.</p>
+            <a class="card-link" href="#commentary">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🤝</span></div>
+          <div class="card-body">
+            <span class="card-category">Partnership</span>
+            <h3 class="card-title">Can future relations be built on equality rather than hierarchy?</h3>
+            <p class="card-excerpt">A durable relationship would require more local ownership, transparency, and acceptance that African states will choose diverse partners.</p>
+            <a class="card-link" href="#overview">Read more</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🎓</span></div>
+          <div class="card-body">
+            <span class="card-category">Future</span>
+            <h3 class="card-title">Youth, education, and entrepreneurship may define the next phase</h3>
+            <p class="card-excerpt">Soft power and practical collaboration could matter more than old military-first models if backed by credibility and consistency.</p>
+            <a class="card-link" href="#about">Read more</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <h2 class="section-title" id="about-heading">About This Site</h2>
+      <div class="about-section">
+        <p><strong>This site was recreated</strong> as a cleaner, modern editorial homepage centered on commentary and analysis.</p>
+        <p>It keeps the static, fast-loading structure of the repository while replacing the original summit-news framing with a more focused political explainer on France and Africa.</p>
+        <p>Repository source: <a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">github.com/yabo1234/oromo3.html</a></p>
+      </div>
+    </section>
+
+    <section class="newsletter-section" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Get New Commentary</h2>
+      <p>Subscribe for new analysis on Africa, Europe, diplomacy, political change, and public debate.</p>
+      <form id="newsletter-form" class="newsletter-form" novalidate>
+        <input class="newsletter-input" type="email" name="email"
+               placeholder="your@email.com" autocomplete="email" required
+               aria-label="Email address" />
+        <button type="submit" class="newsletter-submit">Subscribe</button>
+      </form>
+      <p id="newsletter-msg" class="newsletter-msg" hidden></p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h2>France &amp; Africa</h2>
+        <p>Editorial commentary on diplomacy, power, memory, and changing political relationships.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#commentary">Commentary</a></li>
+          <li><a href="#drivers">Key Drivers</a></li>
+          <li><a href="#debate">Debate</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Themes</h2>
+        <ul>
+          <li><a href="#drivers">Sovereignty</a></li>
+          <li><a href="#drivers">Security</a></li>
+          <li><a href="#drivers">Competition</a></li>
+          <li><a href="#debate">History</a></li>
+          <li><a href="#commentary">Commentary</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Repository</h2>
+        <ul>
+          <li><a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">GitHub source</a></li>
+          <li><a href="https://yabo1234.github.io/oromo3.html/" rel="noopener noreferrer">Live site</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> France &amp; Africa. Commentary provided for informational purposes.</p>
+    </div>
   </footer>
 
-  <script>
-    /* ── Contact form ── */
-    function handleSubmit(e) {
-      e.preventDefault();
-      document.getElementById('form-success').style.display = 'block';
-      e.target.reset();
-    }
-
-    /* ── Update contact-form placeholders when lang changes ── */
-    (function patchSetLang() {
-      var _origSet = window.setLang;
-      window.setLang = function (lang) {
-        if (_origSet) _origSet(lang);
-        var labels = {
-          en: { name: 'Your Name', email: 'Your Email', subject: 'Subject', message: 'Your message…' },
-          om: { name: 'Maqaa Keessan', email: 'Imeeyilii Keessan', subject: 'Mata-Duree', message: 'Ergaa keessan…' }
-        };
-        var l = labels[lang] || labels['en'];
-        ['cf-name','cf-email','cf-subject','cf-message'].forEach(function (id) {
-          var el = document.getElementById(id);
-          if (!el) return;
-          var key = id.replace('cf-', '');
-          if (l[key]) el.placeholder = l[key];
-        });
-      };
-    }());
-  </script>
   <script src="shared.js"></script>
 </body>
 </html>
