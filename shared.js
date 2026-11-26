@@ -76,12 +76,21 @@
         document.querySelectorAll('.card'),
         function (card) { return { el: card, text: card.textContent.toLowerCase() }; }
       );
+      var searchStatus = qs('search-status');
 
       searchInput.addEventListener('input', function () {
         var q = this.value.trim().toLowerCase();
+        var matches = 0;
         cardEntries.forEach(function (entry) {
-          entry.el.style.display = (!q || entry.text.includes(q)) ? '' : 'none';
+          var visible = !q || entry.text.includes(q);
+          entry.el.style.display = visible ? '' : 'none';
+          if (visible) matches += 1;
         });
+        if (searchStatus) {
+          searchStatus.textContent = q
+            ? matches + (matches === 1 ? ' news link found.' : ' news links found.')
+            : '';
+        }
       });
     }
 

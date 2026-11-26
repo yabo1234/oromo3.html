@@ -1,72 +1,27 @@
-# Oromo News & Views
+# EU–Africa News
 
-A simple, fast, accessible static website delivering news, cultural stories,
-and community perspectives for the Oromo people — hosted on **GitHub Pages**.
+A static GitHub Pages site linking readers to current news about the European
+Union, African Union, and their partnership.
 
----
+## Live site
 
-## 🚀 View the Live Site
+[yabo1234.github.io/oromo3.html/](https://yabo1234.github.io/oromo3.html/)
 
-**[https://yabo1234.github.io/oromo3.html/](https://yabo1234.github.io/oromo3.html/)**
+## News links
 
----
+The topic cards open Google News searches, where headlines and dates are
+maintained by Google News and the publishers it indexes. The official-source
+cards link directly to EU and AU institutional newsrooms. The site does not
+fetch, select, or independently verify headlines.
 
-## 💻 View Locally
+The search box filters the links on this page; it does not search the web.
 
-No build step or server required:
+## Local use
 
-1. **Clone or download** this repository:
-   ```bash
-   git clone https://github.com/yabo1234/oromo3.html.git
-   cd oromo3.html
-   ```
-2. **Open** `index.html` directly in your browser:
-   - **macOS:** `open index.html`
-   - **Windows:** `start index.html`
-   - **Linux:** `xdg-open index.html`
-   - Or simply drag the file into any browser window.
+Clone the repository and open `index.html` in a browser. No build or
+dependencies are required. The site uses `styles.css` and `shared.js`; older
+article pages remain available in `articles/`.
 
-That's it — the site is pure HTML + CSS with no dependencies to install.
+## GitHub Pages
 
----
-
-## 📁 File Structure
-
-```
-oromo3.html/
-├── index.html   ← Main entry page
-├── styles.css   ← Shared stylesheet (responsive, accessible)
-└── README.md    ← This file
-```
-
----
-
-## ✨ What Was Improved
-
-| Area | Changes |
-|---|---|
-| **HTML validity** | Added `<!DOCTYPE html>`, `lang="en"`, `<meta charset>`, `<meta viewport>` |
-| **Semantic structure** | Proper `<header>`, `<nav>`, `<main>`, `<footer>`, `<article>`, `<section>`, headings hierarchy |
-| **Accessibility** | Skip-to-content link, `aria-label` / `aria-labelledby` / `aria-current`, `role` landmarks, `prefers-reduced-motion` support |
-| **Responsiveness** | Mobile-first CSS, `clamp()` fluid typography, CSS Grid auto-fill cards, sticky header |
-| **SEO** | Descriptive `<title>`, `<meta name="description">`, OpenGraph and Twitter Card tags |
-| **Performance** | Single external stylesheet, no render-blocking scripts, tiny inline JS for the year only |
-| **Design** | CSS custom properties (color tokens), smooth hover/focus transitions, accessible color contrast |
-| **Cleanup** | Consistent formatting, `prefers-reduced-motion` media query for users who prefer less animation |
-
----
-
-## 🔧 GitHub Pages Setup
-
-1. Go to **Settings → Pages** in the repository.
-2. Set **Source** to the `main` branch, root (`/`) folder.
-3. Click **Save** — the site will be live at `https://yabo1234.github.io/oromo3.html/`.
-
----
-
-## 📝 Follow-up Suggestions
-
-- Add real article pages (e.g. `article-1.html`) and link from the news cards.
-- Integrate a lightweight CMS (e.g. Netlify CMS or Decap) for content editing without code.
-- Add a language-switch button for Afaan Oromoo (`lang="om"` content).
-- Use a service worker for offline support.
+Configure Pages to publish the `main` branch from the repository root.

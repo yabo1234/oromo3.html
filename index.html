@@ -31,9 +31,10 @@
 
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="#latest" aria-current="page">Latest Updates</a></li>
+          <li><a href="#latest">Latest News</a></li>
           <li><a href="#eu">European Union</a></li>
           <li><a href="#au">African Union</a></li>
+          <li><a href="#economy">Economy &amp; More</a></li>
           <li><a href="#about">About</a></li>
         </ul>
       </nav>
@@ -47,53 +48,89 @@
 
   <section class="hero" aria-labelledby="hero-heading">
     <div>
-      <p class="hero-kicker">European Union · African Union</p>
-      <h1 id="hero-heading">The latest from <span>Europe and Africa</span></h1>
+      <p class="hero-kicker">European Union · African Union · Partnership</p>
+      <h1 id="hero-heading">Your window into <span>Europe and Africa</span></h1>
       <p>
-        Follow official announcements, decisions, and statements from EU and AU
-        institutions, with direct links to their newsrooms.
+        Find the latest news, official announcements, and perspectives on the
+        issues shaping both continents.
       </p>
-      <a class="btn btn-primary" href="#latest">Browse official updates</a>
-      <a class="btn btn-outline" href="#about">About this page</a>
+      <a class="btn btn-primary" href="#latest">Explore the news</a>
+      <a class="btn btn-outline" href="#economy">Browse topics</a>
     </div>
   </section>
 
   <main id="main-content">
     <div class="search-wrap" role="search">
-      <label for="search-input" class="visually-hidden">Search news sources</label>
+      <label for="search-input" class="visually-hidden">Filter news links</label>
       <input id="search-input" class="search-input" type="search" autocomplete="off"
-             placeholder="🔍 Search EU, AU, press releases..." aria-label="Search news sources" />
+             placeholder="Search news links by region or topic..." aria-describedby="search-status" />
+      <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
     </div>
 
-    <section class="featured-panel" aria-label="Latest news sources">
+    <section class="featured-panel" aria-label="How to follow the news">
       <div class="featured-copy">
-        <p class="eyebrow">Official news sources</p>
-        <h2>Check the institutions’ newsrooms for breaking updates</h2>
+        <p class="eyebrow">News, closer to the source</p>
+        <h2>Follow the stories as they develop</h2>
         <p>
-          These links go directly to EU and AU news pages, where the publishers
-          maintain the latest headlines, publication dates, and full statements.
+          Read current coverage through Google News or go directly to official
+          EU and AU newsrooms for announcements and original statements.
         </p>
       </div>
-      <div class="featured-stats" aria-label="News coverage">
-        <div><strong>EU</strong><span>European Union</span></div>
-        <div><strong>AU</strong><span>African Union</span></div>
-        <div><strong>Live</strong><span>Publisher updates</span></div>
+      <div class="featured-actions">
+        <a href="https://news.google.com/search?q=%22European%20Union%22&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">European Union news</a>
+        <a href="https://news.google.com/search?q=%22African%20Union%22&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">African Union news</a>
       </div>
     </section>
 
+    <span id="top-stories"></span>
     <section id="latest" aria-labelledby="latest-heading">
-      <h2 class="section-title" id="latest-heading">Latest Official Updates</h2>
+      <h2 class="section-title" id="latest-heading">Latest News</h2>
       <p class="section-intro">
-        Open an official newsroom to see its most recently published news and announcements.
+        Open a topic for current coverage from a range of publishers. Headlines and dates are maintained by Google News.
       </p>
       <div class="cards-grid">
-        <article class="card" id="eu">
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🇪🇺</span></div>
+          <div class="card-body">
+            <span class="card-category">European Union</span>
+            <h3 class="card-title">Latest European Union news</h3>
+            <p class="card-excerpt">Explore current reporting on EU policy, politics, and member states.</p>
+            <a class="card-link" href="https://news.google.com/search?q=%22European%20Union%22&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">Read EU news on Google News</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🌍</span></div>
+          <div class="card-body">
+            <span class="card-category">African Union</span>
+            <h3 class="card-title">Latest African Union news</h3>
+            <p class="card-excerpt">Explore current reporting on AU decisions and developments across Africa.</p>
+            <a class="card-link" href="https://news.google.com/search?q=%22African%20Union%22&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">Read AU news on Google News</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🤝</span></div>
+          <div class="card-body">
+            <span class="card-category">EU–AU Relations</span>
+            <h3 class="card-title">Europe–Africa partnership</h3>
+            <p class="card-excerpt">Follow reporting on diplomacy and cooperation between the European and African unions.</p>
+            <a class="card-link" href="https://news.google.com/search?q=%22European%20Union%22%20%22African%20Union%22&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">Read partnership news on Google News</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <span id="summit"></span>
+    <section id="eu" aria-labelledby="eu-heading">
+      <h2 class="section-title" id="eu-heading">European Union: Official Sources</h2>
+      <p class="section-intro">Read announcements and decisions directly from EU institutions.</p>
+      <div class="cards-grid">
+        <article class="card">
           <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🇪🇺</span></div>
           <div class="card-body">
             <span class="card-category">European Union</span>
             <h3 class="card-title">European Commission Press Corner</h3>
             <p class="card-excerpt">Press releases, statements, and news from the European Commission.</p>
-            <a class="card-link" href="https://ec.europa.eu/commission/presscorner/home/en" target="_blank" rel="noopener noreferrer">Open Commission news</a>
+            <a class="card-link" href="https://ec.europa.eu/commission/presscorner/home/en">Open Commission news</a>
           </div>
         </article>
 
@@ -103,17 +140,23 @@
             <span class="card-category">European Union</span>
             <h3 class="card-title">Council of the European Union</h3>
             <p class="card-excerpt">Council press releases, meeting outcomes, and official statements.</p>
-            <a class="card-link" href="https://www.consilium.europa.eu/en/press/press-releases/" target="_blank" rel="noopener noreferrer">Open Council news</a>
+            <a class="card-link" href="https://www.consilium.europa.eu/en/press/press-releases/">Open Council news</a>
           </div>
         </article>
+      </div>
+    </section>
 
-        <article class="card" id="au">
+    <section id="au" aria-labelledby="au-heading">
+      <h2 class="section-title" id="au-heading">African Union: Official Sources</h2>
+      <p class="section-intro">Read news and official releases directly from the African Union.</p>
+      <div class="cards-grid">
+        <article class="card">
           <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🌍</span></div>
           <div class="card-body">
             <span class="card-category">African Union</span>
             <h3 class="card-title">African Union News</h3>
             <p class="card-excerpt">News and updates published by the African Union and its institutions.</p>
-            <a class="card-link" href="https://au.int/en/news" target="_blank" rel="noopener noreferrer">Open AU news</a>
+            <a class="card-link" href="https://au.int/en/news">Open AU news</a>
           </div>
         </article>
 
@@ -123,7 +166,7 @@
             <span class="card-category">African Union</span>
             <h3 class="card-title">African Union Press Releases</h3>
             <p class="card-excerpt">Official AU press releases and institutional announcements.</p>
-            <a class="card-link" href="https://au.int/en/pressreleases" target="_blank" rel="noopener noreferrer">Open AU press releases</a>
+            <a class="card-link" href="https://au.int/en/pressreleases">Open AU press releases</a>
           </div>
         </article>
 
@@ -133,7 +176,42 @@
             <span class="card-category">EU–AU Relations</span>
             <h3 class="card-title">EU Delegation to the African Union</h3>
             <p class="card-excerpt">Updates and information from the EU’s delegation working with the African Union.</p>
-            <a class="card-link" href="https://www.eeas.europa.eu/delegations/african-union_en" target="_blank" rel="noopener noreferrer">Open EU–AU updates</a>
+            <a class="card-link" href="https://www.eeas.europa.eu/delegations/african-union_en">Open EU–AU updates</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <span id="culture"></span>
+    <section id="economy" aria-labelledby="economy-heading">
+      <h2 class="section-title" id="economy-heading">Economy &amp; More</h2>
+      <p class="section-intro">Explore reporting by topic across Europe and Africa.</p>
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">📈</span></div>
+          <div class="card-body">
+            <span class="card-category">Economy &amp; Trade</span>
+            <h3 class="card-title">Europe–Africa trade and investment</h3>
+            <p class="card-excerpt">Find coverage of trade, economic partnerships, and investment.</p>
+            <a class="card-link" href="https://news.google.com/search?q=Europe%20Africa%20trade%20investment&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">Read trade news on Google News</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🕊️</span></div>
+          <div class="card-body">
+            <span class="card-category">Peace &amp; Security</span>
+            <h3 class="card-title">African Union peace and security</h3>
+            <p class="card-excerpt">Follow reports about AU peace, security, and conflict prevention efforts.</p>
+            <a class="card-link" href="https://news.google.com/search?q=%22African%20Union%22%20peace%20security&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">Read security news on Google News</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🌱</span></div>
+          <div class="card-body">
+            <span class="card-category">Climate &amp; Energy</span>
+            <h3 class="card-title">Climate and energy cooperation</h3>
+            <p class="card-excerpt">Find coverage of energy, climate policy, and cooperation across the two continents.</p>
+            <a class="card-link" href="https://news.google.com/search?q=Europe%20Africa%20climate%20energy&amp;hl=en&amp;gl=US&amp;ceid=US%3Aen">Read climate news on Google News</a>
           </div>
         </article>
       </div>
@@ -142,9 +220,9 @@
     <section id="about" aria-labelledby="about-heading">
       <h2 class="section-title" id="about-heading">About This Page</h2>
       <div class="about-section">
-        <p><strong>EU–Africa News</strong> is a quick directory of official EU and AU news sources.</p>
-        <p>Headlines and dates remain on the institutions’ websites so readers can check current information and original statements at the source.</p>
-        <p>For more context on EU–AU relations, visit the <a href="https://www.eeas.europa.eu/eeas/european-union-and-african-union_en" target="_blank" rel="noopener noreferrer">European External Action Service</a>.</p>
+        <p><strong>EU–Africa News</strong> helps readers find current news and original statements about the European Union and African Union.</p>
+        <p>News searches are provided by Google News and may include independent publishers. Official newsrooms publish their own statements. This site does not select or independently verify those reports.</p>
+        <p>Looking for previous coverage? Read our <a href="articles/somaliland-military-base.html">Somaliland military base article</a>.</p>
       </div>
     </section>
   </main>
@@ -161,6 +239,7 @@
           <li><a href="#eu">European Union</a></li>
           <li><a href="#au">African Union</a></li>
           <li><a href="#latest">EU–AU updates</a></li>
+          <li><a href="#economy">Economy &amp; more</a></li>
         </ul>
       </div>
       <div class="footer-col">
