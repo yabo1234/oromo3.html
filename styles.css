@@ -384,6 +384,68 @@ section {
   display: inline-block;
 }
 
+.section-intro {
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.featured-panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.featured-copy {
+  flex: 1 1 360px;
+}
+
+.featured-copy h2 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+
+.featured-copy p:last-child {
+  color: var(--color-text-muted);
+}
+
+.eyebrow {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.featured-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.featured-actions a {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .card-link {
+  color: #a4d8b8;
+}
+
+html[data-theme="dark"] .card-category {
+  color: #c8e6d4;
+}
+
 /* ---------- Cards Grid ---------- */
 .cards-grid {
   display: grid;
@@ -588,6 +650,12 @@ section {
 /* ---------- Search ---------- */
 .search-wrap {
   margin-bottom: 1.5rem;
+}
+
+.search-status:not(:empty) {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0.5rem 1rem 0;
 }
 
 .search-input {
