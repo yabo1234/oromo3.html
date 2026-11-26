@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Africa Summit News | French & African Affairs</title>
-  <meta name="description" content="A modern news site covering French-Africa summit developments, diplomacy, business, security, and culture across the continent." />
+  <title>EU–Africa News | European Union & African Union Updates</title>
+  <meta name="description" content="Follow official news, statements, and press releases from the European Union and African Union." />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Africa Summit News" />
-  <meta property="og:description" content="French-Africa summit headlines, diplomacy analysis, business updates, and cultural stories." />
+  <meta property="og:title" content="EU–Africa News" />
+  <meta property="og:description" content="Official news and announcements from the European Union and African Union." />
   <meta property="og:url" content="https://yabo1234.github.io/oromo3.html/" />
-  <meta property="og:image" content="https://yabo1234.github.io/oromo3.html/og-image.png" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Africa Summit News" />
-  <meta name="twitter:description" content="The latest coverage of French-Africa summit news and regional developments." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="EU–Africa News" />
+  <meta name="twitter:description" content="Follow official updates from the European Union and African Union." />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,8 +22,8 @@
 
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="site-logo" href="index.html" aria-label="Africa Summit News home">
-        Africa <span>Summit News</span>
+      <a class="site-logo" href="index.html" aria-label="EU–Africa News home">
+        EU <span>– Africa News</span>
       </a>
 
       <button id="btn-nav" class="nav-toggle" onclick="toggleNav()"
@@ -32,10 +31,9 @@
 
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="#top-stories" aria-current="page">Top Stories</a></li>
-          <li><a href="#summit">Summit Briefing</a></li>
-          <li><a href="#economy">Economy</a></li>
-          <li><a href="#culture">Culture</a></li>
+          <li><a href="#latest" aria-current="page">Latest Updates</a></li>
+          <li><a href="#eu">European Union</a></li>
+          <li><a href="#au">African Union</a></li>
           <li><a href="#about">About</a></li>
         </ul>
       </nav>
@@ -48,250 +46,133 @@
   </header>
 
   <section class="hero" aria-labelledby="hero-heading">
-    <div data-lang="en" style="display:block;">
-      <p class="hero-kicker">French-Africa Summit 2026</p>
-      <h1 id="hero-heading">Fresh coverage for a <span>rebuilt African affairs news site</span></h1>
+    <div>
+      <p class="hero-kicker">European Union · African Union</p>
+      <h1 id="hero-heading">The latest from <span>Europe and Africa</span></h1>
       <p>
-        Track major summit decisions, diplomatic signals, trade partnerships,
-        youth innovation, and cultural dialogue shaping relations between France
-        and African nations.
+        Follow official announcements, decisions, and statements from EU and AU
+        institutions, with direct links to their newsrooms.
       </p>
-      <a class="btn btn-primary" href="#top-stories">Explore Headlines</a>
-      <a class="btn btn-outline" href="#summit">View Summit Briefing</a>
+      <a class="btn btn-primary" href="#latest">Browse official updates</a>
+      <a class="btn btn-outline" href="#about">About this page</a>
     </div>
   </section>
 
   <main id="main-content">
     <div class="search-wrap" role="search">
-      <label for="search-input" class="visually-hidden">Search articles</label>
+      <label for="search-input" class="visually-hidden">Search news sources</label>
       <input id="search-input" class="search-input" type="search" autocomplete="off"
-             placeholder="🔍 Search summit, diplomacy, economy..." aria-label="Search articles" />
+             placeholder="🔍 Search EU, AU, press releases..." aria-label="Search news sources" />
     </div>
 
-    <section class="featured-panel" aria-label="Breaking update">
+    <section class="featured-panel" aria-label="Latest news sources">
       <div class="featured-copy">
-        <p class="eyebrow">Breaking Update</p>
-        <h2>French and African delegates announce a new infrastructure and education dialogue track</h2>
+        <p class="eyebrow">Official news sources</p>
+        <h2>Check the institutions’ newsrooms for breaking updates</h2>
         <p>
-          The latest summit session focused on transport financing, digital access,
-          skills partnerships, and new consultation channels between public and private stakeholders.
+          These links go directly to EU and AU news pages, where the publishers
+          maintain the latest headlines, publication dates, and full statements.
         </p>
       </div>
-      <div class="featured-stats" aria-label="Key summit themes">
-        <div><strong>24+</strong><span>delegations in attendance</span></div>
-        <div><strong>6</strong><span>priority themes highlighted</span></div>
-        <div><strong>2026</strong><span>renewed summit roadmap</span></div>
+      <div class="featured-stats" aria-label="News coverage">
+        <div><strong>EU</strong><span>European Union</span></div>
+        <div><strong>AU</strong><span>African Union</span></div>
+        <div><strong>Live</strong><span>Publisher updates</span></div>
       </div>
     </section>
 
-    <section id="top-stories" aria-labelledby="top-stories-heading">
-      <h2 class="section-title" id="top-stories-heading">Top Stories</h2>
+    <section id="latest" aria-labelledby="latest-heading">
+      <h2 class="section-title" id="latest-heading">Latest Official Updates</h2>
+      <p class="section-intro">
+        Open an official newsroom to see its most recently published news and announcements.
+      </p>
       <div class="cards-grid">
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🛰️</span></div>
+        <article class="card" id="eu">
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🇪🇺</span></div>
           <div class="card-body">
-            <span class="card-category">Security</span>
-            <h3 class="card-title">Somaliland military base project sharpens Red Sea tensions</h3>
-            <p class="card-excerpt">A new summary traces the Berbera airport expansion, its link to foreign military partners, and the wider Bab al-Mandab security stakes.</p>
-            <a class="card-link" href="articles/somaliland-military-base.html">Read more</a>
+            <span class="card-category">European Union</span>
+            <h3 class="card-title">European Commission Press Corner</h3>
+            <p class="card-excerpt">Press releases, statements, and news from the European Commission.</p>
+            <a class="card-link" href="https://ec.europa.eu/commission/presscorner/home/en" target="_blank" rel="noopener noreferrer">Open Commission news</a>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🇫🇷</span></div>
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🏛️</span></div>
           <div class="card-body">
-            <span class="card-category">Diplomacy</span>
-            <h3 class="card-title">France and African partners reset summit agenda around investment and mutual accountability</h3>
-            <p class="card-excerpt">Officials emphasized more transparent financing, shared project oversight, and regional consultation in the summit's opening sessions.</p>
-            <a class="card-link" href="#summit">Read more</a>
+            <span class="card-category">European Union</span>
+            <h3 class="card-title">Council of the European Union</h3>
+            <p class="card-excerpt">Council press releases, meeting outcomes, and official statements.</p>
+            <a class="card-link" href="https://www.consilium.europa.eu/en/press/press-releases/" target="_blank" rel="noopener noreferrer">Open Council news</a>
           </div>
         </article>
 
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🏗️</span></div>
-          <div class="card-body">
-            <span class="card-category">Infrastructure</span>
-            <h3 class="card-title">New transport and energy proposals take center stage in French-Africa talks</h3>
-            <p class="card-excerpt">Delegates reviewed proposals for rail, port logistics, electricity access, and blended-finance partnerships targeting long-term growth.</p>
-            <a class="card-link" href="#economy">Read more</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🎓</span></div>
-          <div class="card-body">
-            <span class="card-category">Education</span>
-            <h3 class="card-title">Youth innovation and university exchange programs gain momentum</h3>
-            <p class="card-excerpt">Speakers called for practical scholarship pipelines, startup mentoring, and research collaboration tied to local development goals.</p>
-            <a class="card-link" href="#summit">Read more</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🛡️</span></div>
-          <div class="card-body">
-            <span class="card-category">Security</span>
-            <h3 class="card-title">Regional security coordination remains a key point of debate</h3>
-            <p class="card-excerpt">Participants weighed sovereignty concerns, intelligence cooperation, and civilian protection in fragile areas affected by conflict.</p>
-            <a class="card-link" href="#summit">Read more</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">💼</span></div>
-          <div class="card-body">
-            <span class="card-category">Business</span>
-            <h3 class="card-title">African founders pitch climate, fintech, and agri-tech solutions to summit investors</h3>
-            <p class="card-excerpt">Entrepreneurs showcased scalable products aimed at food resilience, mobile payments, logistics, and clean-energy deployment.</p>
-            <a class="card-link" href="#economy">Read more</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🎭</span></div>
-          <div class="card-body">
-            <span class="card-category">Culture</span>
-            <h3 class="card-title">Artists and curators use the summit week to spotlight shared cultural exchange</h3>
-            <p class="card-excerpt">Parallel exhibitions, film screenings, and music events framed cultural diplomacy as a core part of the summit atmosphere.</p>
-            <a class="card-link" href="#culture">Read more</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="summit" aria-labelledby="summit-heading">
-      <h2 class="section-title" id="summit-heading">Summit Briefing</h2>
-      <div class="about-section">
-        <p><strong>What changed:</strong> The site has been recreated into a cleaner, broader publication focused on French-Africa summit coverage and continental affairs.</p>
-        <p><strong>What matters now:</strong> Discussions are centering on infrastructure finance, educational mobility, industrial policy, digital sovereignty, and the credibility of long-term partnerships.</p>
-        <p><strong>What to watch:</strong> Follow whether announcements lead to measurable delivery, stronger local participation, and clearer terms for public-private cooperation.</p>
-      </div>
-    </section>
-
-    <section id="economy" aria-labelledby="economy-heading">
-      <h2 class="section-title" id="economy-heading">Economy & Partnerships</h2>
-      <div class="cards-grid">
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">📈</span></div>
-          <div class="card-body">
-            <span class="card-category">Markets</span>
-            <h3 class="card-title">Trade officials promote more balanced industrial partnerships</h3>
-            <p class="card-excerpt">Panelists called for local manufacturing capacity, fair procurement, and skills transfer instead of extractive short-term agreements.</p>
-            <a class="card-link" href="#economy">Read more</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🌱</span></div>
-          <div class="card-body">
-            <span class="card-category">Climate</span>
-            <h3 class="card-title">Green investment funds target agriculture and resilient cities</h3>
-            <p class="card-excerpt">Development institutions and private backers outlined blended capital strategies for irrigation, urban adaptation, and renewable power.</p>
-            <a class="card-link" href="#economy">Read more</a>
-          </div>
-        </article>
-        <article class="card">
+        <article class="card" id="au">
           <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🌍</span></div>
           <div class="card-body">
-            <span class="card-category">Regional Growth</span>
-            <h3 class="card-title">Cross-border commerce and logistics corridors return to the agenda</h3>
-            <p class="card-excerpt">Leaders highlighted customs modernization, port efficiency, and transport integration as vital to stronger African trade links.</p>
-            <a class="card-link" href="#economy">Read more</a>
+            <span class="card-category">African Union</span>
+            <h3 class="card-title">African Union News</h3>
+            <p class="card-excerpt">News and updates published by the African Union and its institutions.</p>
+            <a class="card-link" href="https://au.int/en/news" target="_blank" rel="noopener noreferrer">Open AU news</a>
           </div>
         </article>
-      </div>
-    </section>
 
-    <section id="culture" aria-labelledby="culture-heading">
-      <h2 class="section-title" id="culture-heading">Culture & Society</h2>
-      <div class="cards-grid">
         <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🎬</span></div>
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">📣</span></div>
           <div class="card-body">
-            <span class="card-category">Film</span>
-            <h3 class="card-title">Documentary screenings explore memory, migration, and belonging</h3>
-            <p class="card-excerpt">Festival selections during summit week connected diplomacy with lived experience across Francophone and non-Francophone communities.</p>
-            <a class="card-link" href="#culture">Read more</a>
+            <span class="card-category">African Union</span>
+            <h3 class="card-title">African Union Press Releases</h3>
+            <p class="card-excerpt">Official AU press releases and institutional announcements.</p>
+            <a class="card-link" href="https://au.int/en/pressreleases" target="_blank" rel="noopener noreferrer">Open AU press releases</a>
           </div>
         </article>
+
         <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🎶</span></div>
+          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🤝</span></div>
           <div class="card-body">
-            <span class="card-category">Music</span>
-            <h3 class="card-title">Live performances celebrate the diversity of African and French urban sounds</h3>
-            <p class="card-excerpt">Musicians used collaborative sets to spotlight language, identity, and the creative industries surrounding the summit.</p>
-            <a class="card-link" href="#culture">Read more</a>
-          </div>
-        </article>
-        <article class="card">
-          <div class="card-img-wrap" aria-hidden="true"><span class="card-icon">🧠</span></div>
-          <div class="card-body">
-            <span class="card-category">Ideas</span>
-            <h3 class="card-title">Public forums ask how cultural diplomacy can move beyond symbolism</h3>
-            <p class="card-excerpt">Writers, educators, and curators argued for deeper institutional partnerships and wider access to archives, museums, and academic spaces.</p>
-            <a class="card-link" href="#culture">Read more</a>
+            <span class="card-category">EU–AU Relations</span>
+            <h3 class="card-title">EU Delegation to the African Union</h3>
+            <p class="card-excerpt">Updates and information from the EU’s delegation working with the African Union.</p>
+            <a class="card-link" href="https://www.eeas.europa.eu/delegations/african-union_en" target="_blank" rel="noopener noreferrer">Open EU–AU updates</a>
           </div>
         </article>
       </div>
     </section>
 
     <section id="about" aria-labelledby="about-heading">
-      <h2 class="section-title" id="about-heading">About This Site</h2>
+      <h2 class="section-title" id="about-heading">About This Page</h2>
       <div class="about-section">
-        <p><strong>Africa Summit News</strong> is a refreshed static news website designed to highlight French-Africa summit reporting with a cleaner homepage, stronger visual hierarchy, and updated editorial sections.</p>
-        <p>The recreated site keeps the fast-loading static architecture while shifting the content toward diplomacy, economics, culture, and regional affairs.</p>
-        <p>Source repository: <a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">github.com/yabo1234/oromo3.html</a></p>
+        <p><strong>EU–Africa News</strong> is a quick directory of official EU and AU news sources.</p>
+        <p>Headlines and dates remain on the institutions’ websites so readers can check current information and original statements at the source.</p>
+        <p>For more context on EU–AU relations, visit the <a href="https://www.eeas.europa.eu/eeas/european-union-and-african-union_en" target="_blank" rel="noopener noreferrer">European External Action Service</a>.</p>
       </div>
-    </section>
-
-    <section class="newsletter-section" aria-labelledby="newsletter-heading">
-      <h2 id="newsletter-heading">Get Summit Updates</h2>
-      <p>Subscribe for headline summaries on diplomacy, markets, culture, and major French-Africa summit developments.</p>
-      <form id="newsletter-form" class="newsletter-form" novalidate>
-        <input class="newsletter-input" type="email" name="email"
-               placeholder="your@email.com" autocomplete="email" required
-               aria-label="Email address" />
-        <button type="submit" class="newsletter-submit">Subscribe</button>
-      </form>
-      <p id="newsletter-msg" class="newsletter-msg" hidden></p>
     </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-col">
-        <h2>Africa Summit News</h2>
-        <p>Independent coverage of summit diplomacy, economic partnerships, and cultural exchange across Africa.</p>
+        <h2>EU–Africa News</h2>
+        <p>Direct links to news and announcements from European and African Union institutions.</p>
       </div>
       <div class="footer-col">
-        <h2>Sections</h2>
+        <h2>Newsrooms</h2>
         <ul>
-          <li><a href="#top-stories">Top Stories</a></li>
-          <li><a href="#summit">Summit Briefing</a></li>
-          <li><a href="#economy">Economy</a></li>
-          <li><a href="#culture">Culture</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#eu">European Union</a></li>
+          <li><a href="#au">African Union</a></li>
+          <li><a href="#latest">EU–AU updates</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Coverage</h2>
+        <h2>About</h2>
         <ul>
-          <li><a href="#summit">Diplomacy</a></li>
-          <li><a href="#economy">Infrastructure</a></li>
-          <li><a href="#economy">Business</a></li>
-          <li><a href="#culture">Arts</a></li>
-          <li><a href="#top-stories">Headlines</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2>Repository</h2>
-        <ul>
+          <li><a href="#about">About this page</a></li>
           <li><a href="https://github.com/yabo1234/oromo3.html" rel="noopener noreferrer">GitHub source</a></li>
-          <li><a href="https://yabo1234.github.io/oromo3.html/" rel="noopener noreferrer">Live site</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Africa Summit News. Content provided for informational purposes.</p>
+      <p>&copy; <span id="year"></span> EU–Africa News. Follow the source links for the latest reports.</p>
     </div>
   </footer>
 
