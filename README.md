@@ -24,4 +24,5 @@ article pages remain available in `articles/`.
 
 ## GitHub Pages
 
-Configure Pages to publish the `main` branch from the repository root.
+The repository's Pages settings determine the publishing branch. To publish
+directly from `main`, configure Pages to use the `main` branch and root folder.
